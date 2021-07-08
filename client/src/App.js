@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
+import HomePage from './Pages/Homepage';
 
 const App = () => {
   const [response, setResponse] = useState({});
@@ -16,6 +17,7 @@ const App = () => {
     <div className='App'>
       <h1>Here is our new feature!</h1>
       <h1>Fetched data: {response.body}</h1>
+      <HomePage />
     </div>
   );
 };
