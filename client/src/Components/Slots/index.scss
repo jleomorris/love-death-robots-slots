@@ -1,24 +1,26 @@
 .slots {
-  position: absolute;
-  bottom: -300px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
+  //   position: absolute;
+  //   bottom: -300px;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  //   width: 100%;
+  margin: 2rem 0;
 
   .roll-btn {
     background: white;
-    border-radius: 50%;
-    height: 300px;
-    width: 300px;
+    border-radius: 20px;
+    // height: 300px;
+    width: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: -450px;
-    right: 150px;
+    // position: absolute;
+    // top: -450px;
+    // right: 150px;
     box-shadow: 15px 7px 0px #fb420a;
     font-size: 40px;
     cursor: pointer;
+    margin: 0 auto;
 
     &--to-roll {
       animation: blinkingText 1.2s infinite;
