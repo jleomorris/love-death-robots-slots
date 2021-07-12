@@ -1,107 +1,98 @@
 import React, { useState, createRef } from 'react';
 import './index.scss';
 
-import Apocalypse_Tourist from '../Icons/Apocalypse_Tourist';
+// Icon components
+import ApocalypseTourist from '../Icons/ApocalypseTourist';
 import Barn from '../Icons/Barn';
 import BloodLike from '../Icons/BloodLike';
+import Heart from '../Icons/Heart';
+import Snake from '../Icons/Snake';
+import X2 from '../Icons/X2';
+import OneEyedRobot from '../Icons/OneEyedRobot';
+import SlimeBurger from '../Icons/SlimeBurger';
+import Sadomazofembotochist from '../Icons/Sadomazofembotochist';
+import SnakeEatSelf from '../Icons/SnakeEatSelf';
+import Eye from '../Icons/Eye';
 
-const Slots = () => {
-  const episodeData = [
-    {
-      title: "Sonnie's Edge",
-      description:
-        "In the underground world of 'beastie' fights, Sonnie is unbeatable -- as long as she keeps her edge.",
-      icons: ['apocalypse_tourist', 'barn', 'blood_like'],
-    },
-    {
-      title: "Sonnie's Edge2",
-      description:
-        "In the underground world of 'beastie' fights, Sonnie is unbeatable -- as long as she keeps her edge.",
-      icons: ['barn', 'apocalypse_tourist', 'blood_like'],
-    },
-    {
-      title: "Sonnie's Edge3",
-      description:
-        "In the underground world of 'beastie' fights, Sonnie is unbeatable -- as long as she keeps her edge.",
-      icons: ['blood_like', 'barn', 'apocalypse_tourist'],
-    },
-  ];
+// Episode data
+import { episodeData } from '../../episodeData';
 
-  //   const icons = ['🍒', '🍉', '🍊', '🍓', '🍇', '🥝'];
+const Slots = (props) => {
   const icons = [
     <Barn height={200} width={200} />,
-    <Apocalypse_Tourist height={200} width={200} />,
+    <ApocalypseTourist height={200} width={200} />,
     <BloodLike height={200} width={200} />,
+    <Heart height={200} width={200} />,
+    <Snake height={200} width={200} />,
+    <X2 height={200} width={200} />,
+    <OneEyedRobot height={200} width={200} />,
+    <SlimeBurger height={200} width={200} />,
+    <Sadomazofembotochist height={200} width={200} />,
+    <SnakeEatSelf height={200} width={200} />,
+    <Eye height={200} width={200} />,
   ];
-  //   const [slots, setSlots] = useState({
-  //     fruit1: '🍒',
-  //     fruit2: '🍒',
-  //     fruit3: '🍒',
-  //   });
   const [isRolling, setIsRolling] = useState(false);
+  const [previousRandomEpisodeIndex, setPreviousRandonEpisodeIndex] =
+    useState();
   const slotRefs = [createRef(), createRef(), createRef()];
 
-  // to trigger rolling and maintain state
   const roll = () => {
     setIsRolling(true);
+    let randomEpisodeIndex;
 
-    let randomEpisodeIndex = Math.floor(Math.random() * episodeData.length);
+    // Calculate random index until it's different from the previous pick
+    const calculateRandomEpisodeIndex = () => {
+      randomEpisodeIndex = Math.floor(Math.random() * episodeData.length);
+    };
 
-    setTimeout(() => {
-      setIsRolling(false);
-    }, 700);
+    calculateRandomEpisodeIndex();
+
+    while (randomEpisodeIndex === previousRandomEpisodeIndex) {
+      calculateRandomEpisodeIndex();
+    }
 
     // Loop through slot refs and set each one to spin
-    slotRefs.forEach((slot, i) => {
-      // Spin current slot
-      triggerSlotRotation2(slot.current, i, randomEpisodeIndex);
-      //   triggerSlotRotation(slot.current);
-      //   const updatedIcon = triggerSlotRotation(slot.current);
-      // Set current slot object ref
-      //   const selectedIcon = `fruit${i + 1}`;
-      // Set slots with spinning slot
-      //   setSlots({ ...slots, [selectedIcon]: updatedIcon });
+    slotRefs.forEach((slot, index) => {
+      triggerSlotRotation(slot.current, index, randomEpisodeIndex);
     });
   };
 
-  // Create a rolling effect and return random selected option
-  const triggerSlotRotation = (ref) => {
-    const setTop = (top) => {
-      ref.style.top = `${top}px`;
-    };
-    let options = ref.children;
-    let randomOptionIndex = Math.floor(Math.random() * icons.length);
-    let choosenOption = options[randomOptionIndex];
-    // Rotates slots
-    setTop(-choosenOption.offsetTop + 2);
-    return icons[randomOptionIndex];
-  };
-
-  const triggerSlotRotation2 = (ref, index, randomEpisodeIndex) => {
+  // Create a rolling effect and return random episode icons
+  const triggerSlotRotation = (ref, index, randomEpisodeIndex) => {
+    // Function for animating slot rotation
     const setTop = (top) => {
       ref.style.top = `${top}px`;
     };
 
+    // All icon divs
     let options = ref.children;
 
+    // Icon of random episode to change to based on data
     let iconToChangeTo = episodeData[randomEpisodeIndex].icons[index];
-    console.log(episodeData[randomEpisodeIndex].title);
-    let chosenOptionIndex;
+    let iconToChangeToIndex;
 
+    // Search through all icon divs and set index of correct icon to change to
     for (let i = 0; i < options.length; i += 1) {
       if (
         options[i].firstChild.firstElementChild.dataset.name === iconToChangeTo
       ) {
-        chosenOptionIndex = i;
+        iconToChangeToIndex = i;
       }
     }
 
-    // debugger;
-
-    let choosenOption = options[chosenOptionIndex];
-    // Rotates slots
+    let choosenOption = options[iconToChangeToIndex];
+    // Animates slot rotation
     setTop(-choosenOption.offsetTop + 2);
-    // return icons[randomOptionIndex];
+
+    // Set current episode data for details
+    props.setCurrentEpisode(
+      episodeData.filter(
+        (episode) => episode.title === episodeData[randomEpisodeIndex].title
+      )[0]
+    );
+
+    setPreviousRandonEpisodeIndex(randomEpisodeIndex);
+    setIsRolling(false);
   };
 
   return (
