@@ -10,6 +10,13 @@ const Header = () => {
 
   return (
     <div className='header section'>
+      {!currentEpisode && (
+        <DynamicBackground
+          fileName='General'
+          type='jpg'
+          className='header__background'
+        />
+      )}
       {currentEpisode?.backgroundImg && (
         <DynamicBackground
           fileName={currentEpisode?.backgroundImg}
