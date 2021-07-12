@@ -31,7 +31,7 @@ export const episodeData = [
     },
     description:
       'Long after the fall of humanity, three robots embark on a sightseeing tour of a post-apocalyptic city.',
-    icons: ['one_eyed_robot', 'apocalypse_tourist', 'slime_burger'],
+    icons: ['one_eyed_skull', 'cycloptic_pyramid', 'dripping_hamburger'],
     backgroundImg: 'Three_Robots',
     rating: 8.0,
   },
@@ -49,7 +49,7 @@ export const episodeData = [
     },
     description:
       'After seeing a brutal murder, a woman flees from the killer through the streets of a surreal city.',
-    icons: ['snake_eat_self', 'sadomazofembotochist', 'eye'],
+    icons: ['ouroboros', 'kinky_mask', 'eye'],
     backgroundImg: 'The_Witness_2',
     rating: 7.8,
   },
@@ -67,7 +67,7 @@ export const episodeData = [
     },
     description:
       'A community of farmers use their homemade mechs to defend their families from an alien invasion.',
-    icons: ['blood_like', 'barn', 'apocalypse_tourist'],
+    icons: ['mug', 'barn', 'cows_head'],
     backgroundImg: 'Suits',
     rating: 7.5,
   },
@@ -85,7 +85,7 @@ export const episodeData = [
     },
     description:
       'Unleashed by an archaeological dig, a bloodthirsty demon battles a team of mercenaries armed with... cats?',
-    icons: ['blood_like', 'barn', 'apocalypse_tourist'],
+    icons: ['cat', 'x_2', 'split_skull'],
     backgroundImg: 'Sucker_Of_Souls',
     rating: 6.5,
   },
@@ -103,7 +103,7 @@ export const episodeData = [
     },
     description:
       'After scientists accidentally breed super-intelligent yogurt, it soon hungers for world domination.',
-    icons: ['blood_like', 'barn', 'apocalypse_tourist'],
+    icons: ['microscopic_beings', 'yogurt', 'strawberry'],
     backgroundImg: 'When_The_Yoghurt_Took_Over',
     rating: 6.9,
   },
@@ -121,7 +121,7 @@ export const episodeData = [
     },
     description:
       "Awakening after traveling light years off course, a ship's crew struggles to discover just how far they've come.",
-    icons: ['blood_like', 'barn', 'apocalypse_tourist'],
+    icons: ['blood_like', 'barn', 'cycloptic_pyramid'],
     backgroundImg: 'Beyond_The_Aquila_Rift',
     rating: 6.5,
   },

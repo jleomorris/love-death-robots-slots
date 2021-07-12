@@ -2,17 +2,24 @@ import React, { useState, createRef } from 'react';
 import './index.scss';
 
 // Icon components
-import ApocalypseTourist from '../Icons/ApocalypseTourist';
+import CyclopticPyramid from '../Icons/CyclopticPyramid';
 import Barn from '../Icons/Barn';
 import BloodLike from '../Icons/BloodLike';
 import Heart from '../Icons/Heart';
 import Snake from '../Icons/Snake';
 import X2 from '../Icons/X2';
-import OneEyedRobot from '../Icons/OneEyedRobot';
-import SlimeBurger from '../Icons/SlimeBurger';
-import Sadomazofembotochist from '../Icons/Sadomazofembotochist';
-import SnakeEatSelf from '../Icons/SnakeEatSelf';
+import OneEyedSkull from '../Icons/OneEyedSkull';
+import DrippingHamburger from '../Icons/DrippingHamburger';
+import KinkyMask from '../Icons/KinkyMask';
+import Ouroboros from '../Icons/Ouroboros';
 import Eye from '../Icons/Eye';
+import Mug from '../Icons/Mug';
+import CowsHead from '../Icons/CowsHead';
+import Cat from '../Icons/Cat';
+import SplitSkull from '../Icons/SplitSkull';
+import MicroscopicBeings from '../Icons/MicroscopicBeings';
+import Yogurt from '../Icons/Yogurt';
+import Strawberry from '../Icons/Strawberry';
 
 // Episode data
 import { episodeData } from '../../episodeData';
@@ -20,16 +27,23 @@ import { episodeData } from '../../episodeData';
 const Slots = (props) => {
   const icons = [
     <Barn height={200} width={200} />,
-    <ApocalypseTourist height={200} width={200} />,
+    <CyclopticPyramid height={200} width={200} />,
     <BloodLike height={200} width={200} />,
     <Heart height={200} width={200} />,
     <Snake height={200} width={200} />,
     <X2 height={200} width={200} />,
-    <OneEyedRobot height={200} width={200} />,
-    <SlimeBurger height={200} width={200} />,
-    <Sadomazofembotochist height={200} width={200} />,
-    <SnakeEatSelf height={200} width={200} />,
+    <OneEyedSkull height={200} width={200} />,
+    <DrippingHamburger height={200} width={200} />,
+    <KinkyMask height={200} width={200} />,
+    <Ouroboros height={200} width={200} />,
     <Eye height={200} width={200} />,
+    <Mug height={200} width={200} />,
+    <CowsHead height={200} width={200} />,
+    <Cat height={200} width={200} />,
+    <SplitSkull height={200} width={200} />,
+    <MicroscopicBeings height={200} width={200} />,
+    <Yogurt height={200} width={200} />,
+    <Strawberry height={200} width={200} />,
   ];
   const [isRolling, setIsRolling] = useState(false);
   const [previousRandomEpisodeIndex, setPreviousRandonEpisodeIndex] =
@@ -69,6 +83,7 @@ const Slots = (props) => {
 
     // Icon of random episode to change to based on data
     let iconToChangeTo = episodeData[randomEpisodeIndex].icons[index];
+    console.log('Slots.iconToChangeTo', iconToChangeTo);
     let iconToChangeToIndex;
 
     // Search through all icon divs and set index of correct icon to change to
@@ -92,7 +107,9 @@ const Slots = (props) => {
     );
 
     setPreviousRandonEpisodeIndex(randomEpisodeIndex);
-    setIsRolling(false);
+    setTimeout(() => {
+      setIsRolling(false);
+    }, 700);
   };
 
   return (
