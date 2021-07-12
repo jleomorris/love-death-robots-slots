@@ -46,32 +46,30 @@ const Header = () => {
         {/* <div className='roll-btn'>Roll</div> */}
         <Slots setCurrentEpisode={setCurrentEpisode} />
       </div>
-      <div className='details'>
-        {currentEpisode !== undefined && (
-          <>
-            <h2 className='details__episode-number'>
-              #{currentEpisode?.episodeNumber}
-            </h2>
-            <h2 className='details__title'>{currentEpisode?.title}</h2>
-            <h2 className='details__description'>
-              {currentEpisode?.description}
-            </h2>
-            <div className='details__secondary-details'>
-              {Object.keys(currentEpisode?.secondaryDetails).map((detail) => {
-                return (
-                  <div className='secondary-detail'>
-                    <p className='secondary-detail__title'>{detail}</p>
-                    <p className='secondary-detail__content'>
-                      {currentEpisode?.secondaryDetails[detail]}
-                    </p>
-                  </div>
-                );
-                // `${detail}:${secondaryDetails[detail]}`;
-              })}
-            </div>
-          </>
-        )}
-      </div>
+      {currentEpisode !== undefined && (
+        <div className='details'>
+          <h2 className='details__episode-number'>
+            #{currentEpisode?.episodeNumber}
+          </h2>
+          <h2 className='details__title'>{currentEpisode?.title}</h2>
+          <h2 className='details__description'>
+            {currentEpisode?.description}
+          </h2>
+          <div className='details__secondary-details'>
+            {Object.keys(currentEpisode?.secondaryDetails).map((detail) => {
+              return (
+                <div className='secondary-detail'>
+                  <p className='secondary-detail__title'>{detail}</p>
+                  <p className='secondary-detail__content'>
+                    {currentEpisode?.secondaryDetails[detail]}
+                  </p>
+                </div>
+              );
+              // `${detail}:${secondaryDetails[detail]}`;
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
