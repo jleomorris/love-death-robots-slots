@@ -1,6 +1,6 @@
 import React from 'react';
 
-const OneEyedRobot = (props) => {
+const OneEyedSkull = (props) => {
   return (
     <svg
       version='1.0'
@@ -9,7 +9,7 @@ const OneEyedRobot = (props) => {
       height={props.height || '48'}
       viewBox='0 0 700.000000 848.000000'
       preserveAspectRatio='xMidYMid meet'
-      data-name='one_eyed_robot'
+      data-name='one_eyed_skull'
     >
       <g
         transform='translate(0.000000,848.000000) scale(0.100000,-0.100000)'
@@ -51,4 +51,4 @@ c33 -17 77 -36 97 -42 20 -7 65 -35 100 -62 60 -47 77 -68 175 -209 102 -148
   );
 };
 
-export default OneEyedRobot;
+export default OneEyedSkull;

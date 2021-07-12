@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Apocalypse_Tourist = (props) => {
+const CyclopticPyramid = (props) => {
   return (
     <svg
       width={props.width || 48}
@@ -8,7 +8,7 @@ const Apocalypse_Tourist = (props) => {
       viewBox='0 0 48 48'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      data-name='apocalypse_tourist'
+      data-name='cycloptic_pyramid'
     >
       <path
         opacity='0.91'
@@ -20,4 +20,4 @@ const Apocalypse_Tourist = (props) => {
   );
 };
 
-export default Apocalypse_Tourist;
+export default CyclopticPyramid;
