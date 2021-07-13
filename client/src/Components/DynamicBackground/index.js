@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 // import example from '../../Images/Episode/Backgrounds/';
+// Animations
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { scrollRevealRight, fade } from '../../animations';
 
 const DynamicBackground = (props) => {
   const [source, setSource] = useState(null);
@@ -15,8 +19,18 @@ const DynamicBackground = (props) => {
   });
 
   return (
-    source && <img className={props.className} src={source} alt='background' />
+    source && (
+      <StyledBackgroundImage
+        variants={fade}
+        className={props.className}
+        src={source}
+        alt='background'
+      />
+    )
   );
 };
+
+// Styled components
+const StyledBackgroundImage = styled(motion.img)``;
 
 export default DynamicBackground;

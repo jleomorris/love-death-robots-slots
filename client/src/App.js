@@ -3,6 +3,8 @@ import './App.css';
 import axios from 'axios';
 import HomePage from './Pages/Homepage';
 import './Global.scss';
+// Animations
+import { AnimatePresence } from 'framer-motion';
 
 const App = () => {
   const [response, setResponse] = useState({});
@@ -16,9 +18,9 @@ const App = () => {
 
   return (
     <div className='App'>
-      {/* <h1>Here is our new feature!</h1>
-      <h1>Fetched data: {response.body}</h1> */}
-      <HomePage />
+      <AnimatePresence>
+        <HomePage />
+      </AnimatePresence>
     </div>
   );
 };

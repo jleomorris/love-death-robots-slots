@@ -4,6 +4,14 @@ import HeaderImage from '../../Images/Header.png';
 import Slots from '../Slots';
 import { Player } from 'video-react';
 import DynamicBackground from '../DynamicBackground';
+// Animation
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import {
+  titleAnimation,
+  scrollRevealRight,
+  photoAnimation,
+} from '../../animations';
 
 const Header = () => {
   const [currentEpisode, setCurrentEpisode] = useState();
@@ -18,13 +26,21 @@ const Header = () => {
         />
       )}
       {currentEpisode?.backgroundImg && (
-        <DynamicBackground
-          fileName={currentEpisode?.backgroundImg}
-          type='jpg'
-          className='header__background'
-        />
+        <StyledDynamicBackground
+          variants={scrollRevealRight}
+          className='styled-dynamic-background'
+        >
+          <DynamicBackground
+            fileName={currentEpisode?.backgroundImg}
+            type='jpg'
+            className='header__background'
+          />
+        </StyledDynamicBackground>
       )}
-      <div className='title-slots-container'>
+      <StyledTitleSlotsContainer
+        className='title-slots-container'
+        variants={titleAnimation}
+      >
         <h1 className='header__title'>
           Random Episode{' '}
           <span className='header__title header__title--highlighted'>
@@ -45,9 +61,9 @@ const Header = () => {
         </div>
         {/* <div className='roll-btn'>Roll</div> */}
         <Slots setCurrentEpisode={setCurrentEpisode} />
-      </div>
+      </StyledTitleSlotsContainer>
       {currentEpisode !== undefined && (
-        <div className='details'>
+        <StyledDetails variants={titleAnimation} className='details'>
           <h2 className='details__episode-number'>
             #{currentEpisode?.episodeNumber}
           </h2>
@@ -65,13 +81,24 @@ const Header = () => {
                   </p>
                 </div>
               );
-              // `${detail}:${secondaryDetails[detail]}`;
             })}
           </div>
-        </div>
+        </StyledDetails>
       )}
     </div>
   );
 };
+
+// Styled components
+const StyledTitleSlotsContainer = styled(motion.div)``;
+const StyledDetails = styled(motion.div)``;
+const StyledDynamicBackground = styled(motion.div)`
+  border: 2px solid red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
 
 export default Header;
