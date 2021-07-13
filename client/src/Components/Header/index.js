@@ -13,25 +13,23 @@ import {
   photoAnimation,
 } from '../../animations';
 
-const Header = () => {
-  const [currentEpisode, setCurrentEpisode] = useState();
-
+const Header = (props) => {
   return (
     <div className='header section'>
-      {!currentEpisode && (
+      {!props.currentEpisode && (
         <DynamicBackground
           fileName='General'
           type='jpg'
           className='header__background'
         />
       )}
-      {currentEpisode?.backgroundImg && (
+      {props.currentEpisode?.backgroundImg && (
         <StyledDynamicBackground
           variants={scrollRevealRight}
           className='styled-dynamic-background'
         >
           <DynamicBackground
-            fileName={currentEpisode?.backgroundImg}
+            fileName={props.currentEpisode?.backgroundImg}
             type='jpg'
             className='header__background'
           />
@@ -60,28 +58,30 @@ const Header = () => {
           {/* <div className='roll-btn'>Roll</div> */}
         </div>
         {/* <div className='roll-btn'>Roll</div> */}
-        <Slots setCurrentEpisode={setCurrentEpisode} />
+        <Slots setCurrentEpisode={props.setCurrentEpisode} />
       </StyledTitleSlotsContainer>
-      {currentEpisode !== undefined && (
+      {props.currentEpisode !== undefined && (
         <StyledDetails variants={titleAnimation} className='details'>
           <h2 className='details__episode-number'>
-            #{currentEpisode?.episodeNumber}
+            #{props.currentEpisode?.episodeNumber}
           </h2>
-          <h2 className='details__title'>{currentEpisode?.title}</h2>
+          <h2 className='details__title'>{props.currentEpisode?.title}</h2>
           <h2 className='details__description'>
-            {currentEpisode?.description}
+            {props.currentEpisode?.description}
           </h2>
           <div className='details__secondary-details'>
-            {Object.keys(currentEpisode?.secondaryDetails).map((detail) => {
-              return (
-                <div className='secondary-detail'>
-                  <p className='secondary-detail__title'>{detail}</p>
-                  <p className='secondary-detail__content'>
-                    {currentEpisode?.secondaryDetails[detail]}
-                  </p>
-                </div>
-              );
-            })}
+            {Object.keys(props.currentEpisode?.secondaryDetails).map(
+              (detail) => {
+                return (
+                  <div className='secondary-detail'>
+                    <p className='secondary-detail__title'>{detail}</p>
+                    <p className='secondary-detail__content'>
+                      {props.currentEpisode?.secondaryDetails[detail]}
+                    </p>
+                  </div>
+                );
+              }
+            )}
           </div>
         </StyledDetails>
       )}
