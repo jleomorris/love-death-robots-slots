@@ -9,7 +9,7 @@ export const pageAnimation = {
     transition: {
       duration: 0.5,
       when: 'beforeChildren',
-      staggerChildren: 0.25,
+      //   staggerChildren: 0.25,
     },
   },
   exit: {
@@ -44,14 +44,14 @@ export const projectBannerAnimation = {
   },
 };
 
-export const titleAnimation = {
+export const yUpAnimation = (delay) => ({
   hidden: { y: 200, opacity: 0 },
   show: {
     y: 0,
     opacity: 1,
-    transition: { duration: 0.75, ease: 'easeOut', delay: 1 },
+    transition: { duration: 0.75, ease: 'easeOut', delay: delay },
   },
-};
+});
 
 export const fade = {
   hidden: { opacity: 0 },
@@ -89,12 +89,19 @@ export const sliderContainer = {
   show: { opacity: 1, transition: { staggerChildren: 0.15, ease: 'easeOut' } },
 };
 
-export const scrollRevealRight = {
-  hidden: { opacity: 0, x: '100%', transition: { duration: 0.5 } },
+export const enterRight = {
+  hidden: { opacity: 0, x: '100%', transition: { duration: 0 } },
   show: {
     opacity: 1,
     x: 0,
-    transition: { duration: 1, ease: 'easeOut', delay: 0.5 },
+    transition: { duration: 1, ease: 'easeOut' },
+  },
+  exit: {
+    opacity: 0,
+    x: '-200%',
+    transition: {
+      duration: 0.5,
+    },
   },
 };
 

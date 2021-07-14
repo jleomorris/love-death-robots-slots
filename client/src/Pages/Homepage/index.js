@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 import {
   pageAnimation,
   scrollRevealRight,
-  titleAnimation,
+  yUpAnimation,
 } from '../../animations';
 // import ScrollToTop from '../../components/ScrollToTop';
 // Animation
@@ -36,7 +36,7 @@ const HomePage = (props) => {
         />
         <StyledTitleSlotsContainer
           className='title-slots-container'
-          variants={titleAnimation}
+          variants={yUpAnimation()}
         >
           <h1 className='header__title'>
             Random Episode{' '}
