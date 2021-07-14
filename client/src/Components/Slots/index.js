@@ -48,7 +48,7 @@ const Slots = (props) => {
     <Strawberry height={200} width={200} />,
   ];
   const [isRolling, setIsRolling] = useState(false);
-  const [previousRandomEpisodeIndex, setPreviousRandonEpisodeIndex] =
+  const [previousRandomEpisodeIndex, setPreviousRandomEpisodeIndex] =
     useState();
   const slotRefs = [createRef(), createRef(), createRef()];
 
@@ -108,7 +108,8 @@ const Slots = (props) => {
       )[0]
     );
 
-    setPreviousRandonEpisodeIndex(randomEpisodeIndex);
+    setPreviousRandomEpisodeIndex(randomEpisodeIndex);
+    props.setIsEpisodeGenerated(true);
     setTimeout(() => {
       setIsRolling(false);
     }, 700);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.scss';
 import HeaderImage from '../../Images/Header.png';
 import Slots from '../Slots';
@@ -9,13 +9,23 @@ import DynamicBackground from '../DynamicBackground';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import {
-  titleAnimation,
-  scrollRevealRight,
+  yUpAnimation,
+  enterRight,
   photoAnimation,
   pageAnimation,
 } from '../../animations';
 
 const Header = (props) => {
+  const [isEpisodeGenerated, setIsEpisodeGenerated] = useState(false);
+
+  useEffect(() => {
+    if (isEpisodeGenerated === true) {
+      setTimeout(() => {
+        setIsEpisodeGenerated(false);
+      }, 500);
+    }
+  }, [isEpisodeGenerated]);
+
   return (
     <motion.div
       className='header section'
@@ -33,8 +43,10 @@ const Header = (props) => {
       )}
       {props.currentEpisode?.backgroundImg && (
         <StyledDynamicBackground
-          variants={scrollRevealRight}
+          variants={enterRight}
+          animate={isEpisodeGenerated ? 'hidden' : 'show'}
           className='styled-dynamic-background'
+          exit='exit'
         >
           <DynamicBackground
             fileName={props.currentEpisode?.backgroundImg}
@@ -45,7 +57,7 @@ const Header = (props) => {
       )}
       <StyledTitleSlotsContainer
         className='title-slots-container'
-        variants={titleAnimation}
+        variants={yUpAnimation()}
       >
         <h1 className='header__title'>
           Random Episode{' '}
@@ -66,10 +78,19 @@ const Header = (props) => {
           {/* <div className='roll-btn'>Roll</div> */}
         </div>
         {/* <div className='roll-btn'>Roll</div> */}
-        <Slots setCurrentEpisode={props.setCurrentEpisode} />
+        <Slots
+          setCurrentEpisode={props.setCurrentEpisode}
+          setIsEpisodeGenerated={setIsEpisodeGenerated}
+        />
       </StyledTitleSlotsContainer>
       {props.currentEpisode !== undefined && (
-        <StyledDetails variants={titleAnimation} className='details'>
+        <StyledDetails
+          className='details'
+          variants={yUpAnimation(1)}
+          initial='hidden'
+          animate='show'
+          exit='exit'
+        >
           <h2 className='details__episode-number'>
             #{props.currentEpisode?.episodeNumber}
           </h2>
@@ -101,7 +122,7 @@ const Header = (props) => {
 const StyledTitleSlotsContainer = styled(motion.div)``;
 const StyledDetails = styled(motion.div)``;
 const StyledDynamicBackground = styled(motion.div)`
-  border: 2px solid red;
+  border: 1px solid red;
   position: absolute;
   top: 0;
   left: 0;
