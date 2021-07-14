@@ -3,7 +3,14 @@
   //   background: #0c0c0c;
   display: flex;
   position: relative;
-  background: linear-gradient(90deg, #0e0e0e 15%, rgba(31, 31, 31, 0));
+  //   background: linear-gradient(90deg, #0e0e0e 15%, rgba(31, 31, 31, 0));
+  background: url(../../Images/Episode/Backgrounds/General3.jpg);
+  z-index: 0;
+  //   filter: blur(2px);
+
+  & > * {
+    filter: blur(0);
+  }
 
   &__background {
     position: absolute;
