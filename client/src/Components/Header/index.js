@@ -3,6 +3,7 @@ import './index.scss';
 import HeaderImage from '../../Images/Header.png';
 import Slots from '../Slots';
 import { Player } from 'video-react';
+// Components
 import DynamicBackground from '../DynamicBackground';
 // Animation
 import styled from 'styled-components';
@@ -11,11 +12,18 @@ import {
   titleAnimation,
   scrollRevealRight,
   photoAnimation,
+  pageAnimation,
 } from '../../animations';
 
 const Header = (props) => {
   return (
-    <div className='header section'>
+    <motion.div
+      className='header section'
+      variants={pageAnimation}
+      initial='hidden'
+      animate='show'
+      exit='exit'
+    >
       {!props.currentEpisode && (
         <DynamicBackground
           fileName='General'
@@ -85,7 +93,7 @@ const Header = (props) => {
           </div>
         </StyledDetails>
       )}
-    </div>
+    </motion.div>
   );
 };
 

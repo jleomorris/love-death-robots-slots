@@ -4,6 +4,8 @@ import HeaderImage from '../../Images/Header.png';
 // Components
 import Slots from '../../Components/Slots';
 import DynamicBackground from '../../Components/DynamicBackground';
+// Routing
+import { useHistory } from 'react-router';
 // Animation
 import { motion } from 'framer-motion';
 import {
@@ -16,6 +18,8 @@ import {
 import styled from 'styled-components';
 
 const HomePage = (props) => {
+  const history = useHistory();
+
   return (
     <StyledHomePage
       variants={pageAnimation}

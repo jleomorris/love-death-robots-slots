@@ -1,5 +1,6 @@
 import React, { useState, createRef } from 'react';
 import './index.scss';
+import { useHistory, Link, Redirect } from 'react-router-dom';
 
 // Icon components
 import CyclopticPyramid from '../Icons/CyclopticPyramid';
@@ -25,6 +26,7 @@ import Strawberry from '../Icons/Strawberry';
 import { episodeData } from '../../episodeData';
 
 const Slots = (props) => {
+  const history = useHistory();
   const icons = [
     <Barn height={200} width={200} />,
     <CyclopticPyramid height={200} width={200} />,
@@ -50,7 +52,7 @@ const Slots = (props) => {
     useState();
   const slotRefs = [createRef(), createRef(), createRef()];
 
-  const roll = () => {
+  const rollHandler = () => {
     setIsRolling(true);
     let randomEpisodeIndex;
 
@@ -110,6 +112,13 @@ const Slots = (props) => {
     setTimeout(() => {
       setIsRolling(false);
     }, 700);
+
+    const episodeToGoTo = episodeData[randomEpisodeIndex].title;
+
+    // setTimeout(() => {
+    //   history.push(episodeToGoTo);
+    // }, 1400);
+    // history.push(episodeToGoTo);
   };
 
   return (
@@ -149,7 +158,7 @@ const Slots = (props) => {
       </div>
       <div
         className={`${!isRolling ? 'roll-btn roll-btn--to-roll' : 'roll-btn'}`}
-        onClick={roll}
+        onClick={rollHandler}
         disabled={isRolling}
       >
         Roll

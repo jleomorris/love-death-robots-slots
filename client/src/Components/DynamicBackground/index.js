@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 // Animations
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { scrollRevealRight, fade } from '../../animations';
+import { scrollRevealRight, fade, titleAnimation } from '../../animations';
 
 const DynamicBackground = (props) => {
   const [source, setSource] = useState(null);
@@ -21,16 +21,23 @@ const DynamicBackground = (props) => {
   return (
     source && (
       <StyledBackgroundImage
-        variants={fade}
-        className={props.className}
-        src={source}
-        alt='background'
-      />
+        className='styled-background-image'
+        variants={scrollRevealRight}
+      >
+        <img className={props.className} src={source} alt='background' />
+      </StyledBackgroundImage>
     )
   );
 };
 
 // Styled components
-const StyledBackgroundImage = styled(motion.img)``;
+const StyledBackgroundImage = styled(motion.div)`
+  border: 2px solid green;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
 
 export default DynamicBackground;

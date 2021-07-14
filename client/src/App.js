@@ -26,7 +26,11 @@ const App = () => {
       <AnimatePresence>
         <Switch location={location} key={location.pathname}>
           <Route path={`/`} exact>
-            <HomePage
+            {/* <HomePage
+              currentEpisode={currentEpisode}
+              setCurrentEpisode={setCurrentEpisode}
+            /> */}
+            <Header
               currentEpisode={currentEpisode}
               setCurrentEpisode={setCurrentEpisode}
             />

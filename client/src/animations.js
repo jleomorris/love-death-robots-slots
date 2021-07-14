@@ -49,7 +49,7 @@ export const titleAnimation = {
   show: {
     y: 0,
     opacity: 1,
-    transition: { duration: 0.75, ease: 'easeOut' },
+    transition: { duration: 0.75, ease: 'easeOut', delay: 1 },
   },
 };
 
@@ -94,7 +94,7 @@ export const scrollRevealRight = {
   show: {
     opacity: 1,
     x: 0,
-    transition: { duration: 1, ease: 'easeOut' },
+    transition: { duration: 1, ease: 'easeOut', delay: 0.5 },
   },
 };
 
