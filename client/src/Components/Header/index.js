@@ -12,11 +12,13 @@ import {
   yUpAnimation,
   enterRight,
   photoAnimation,
+  halfWidth,
   pageAnimation,
 } from '../../animations';
 
 const Header = (props) => {
   const [isEpisodeGenerated, setIsEpisodeGenerated] = useState(false);
+  const [firstRollCompleted, setFirstRollCompleted] = useState(false);
 
   useEffect(() => {
     if (isEpisodeGenerated === true) {
@@ -43,9 +45,10 @@ const Header = (props) => {
       )}
       {props.currentEpisode?.backgroundImg && (
         <StyledDynamicBackground
-          variants={enterRight}
-          animate={isEpisodeGenerated ? 'hidden' : 'show'}
           className='styled-dynamic-background'
+          variants={enterRight}
+          initial='hidden'
+          animate={isEpisodeGenerated ? '' : 'show'}
           exit='exit'
         >
           <DynamicBackground
@@ -57,7 +60,9 @@ const Header = (props) => {
       )}
       <StyledTitleSlotsContainer
         className='title-slots-container'
-        variants={yUpAnimation()}
+        variants={halfWidth()}
+        initial='hidden'
+        animate={firstRollCompleted ? 'show' : ''}
       >
         <h1 className='header__title'>
           Random Episode{' '}
@@ -81,12 +86,13 @@ const Header = (props) => {
         <Slots
           setCurrentEpisode={props.setCurrentEpisode}
           setIsEpisodeGenerated={setIsEpisodeGenerated}
+          setFirstRollCompleted={setFirstRollCompleted}
         />
       </StyledTitleSlotsContainer>
       {props.currentEpisode !== undefined && (
         <StyledDetails
           className='details'
-          variants={yUpAnimation(1)}
+          variants={yUpAnimation(1.5)}
           initial='hidden'
           animate='show'
           exit='exit'
@@ -122,7 +128,7 @@ const Header = (props) => {
 const StyledTitleSlotsContainer = styled(motion.div)``;
 const StyledDetails = styled(motion.div)``;
 const StyledDynamicBackground = styled(motion.div)`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   position: absolute;
   top: 0;
   left: 0;

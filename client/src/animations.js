@@ -44,6 +44,14 @@ export const projectBannerAnimation = {
   },
 };
 
+export const halfWidth = (delay) => ({
+  hidden: { width: '100%' },
+  show: {
+    width: '50%',
+    transition: { duration: 0.75, ease: 'easeOut', delay: delay },
+  },
+});
+
 export const yUpAnimation = (delay) => ({
   hidden: { y: 200, opacity: 0 },
   show: {
@@ -90,7 +98,7 @@ export const sliderContainer = {
 };
 
 export const enterRight = {
-  hidden: { opacity: 0, x: '100%', transition: { duration: 0 } },
+  hidden: { opacity: 0, x: '100%', transition: { duration: 0.5 } },
   show: {
     opacity: 1,
     x: 0,

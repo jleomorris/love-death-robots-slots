@@ -110,6 +110,7 @@ const Slots = (props) => {
 
     setPreviousRandomEpisodeIndex(randomEpisodeIndex);
     props.setIsEpisodeGenerated(true);
+    props.setFirstRollCompleted(true);
     setTimeout(() => {
       setIsRolling(false);
     }, 700);
