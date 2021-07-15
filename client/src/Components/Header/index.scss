@@ -6,6 +6,7 @@
   //   background: linear-gradient(90deg, #0e0e0e 15%, rgba(31, 31, 31, 0));
   background: url(../../Images/Episode/Backgrounds/General3.jpg);
   z-index: 0;
+  overflow: hidden;
   //   filter: blur(2px);
 
   & > * {
@@ -29,7 +30,7 @@
     justify-content: flex-start;
     position: relative;
     // width: 55%;
-    flex: 1;
+    // flex: 1;
     // border: 2px solid red;
     // background: rgb(17, 17, 17);
   }

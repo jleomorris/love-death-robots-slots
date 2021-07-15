@@ -33,7 +33,7 @@ const StyledBackgroundImage = styled(motion.div)`
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #0e0e0e 15%, rgba(31, 31, 31, 0));
+  /* background: linear-gradient(90deg, #0e0e0e 15%, rgba(31, 31, 31, 0)); */
 `;
 
 export default DynamicBackground;
