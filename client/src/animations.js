@@ -52,7 +52,7 @@ export const halfWidth = (delay) => ({
   },
 });
 
-export const yUpAnimation = (delay) => ({
+export const slideUp = (delay) => ({
   hidden: { y: 200, opacity: 0 },
   show: {
     y: 0,
