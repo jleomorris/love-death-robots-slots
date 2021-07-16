@@ -21,7 +21,17 @@ import SplitSkull from '../Icons/SplitSkull';
 import MicroscopicBeings from '../Icons/MicroscopicBeings';
 import Yogurt from '../Icons/Yogurt';
 import Strawberry from '../Icons/Strawberry';
-
+import Penis from '../Icons/Penis';
+import SurgeTank from '../Icons/SurgeTank';
+import HorrifiedFace from '../Icons/HorrifiedFace';
+import Cog from '../Icons/Cog';
+import HuliJingHead from '../Icons/HuliJingHead';
+import Zippo from '../Icons/Zippo';
+import Otto from '../Icons/Otto';
+import DogTags from '../Icons/DogTags';
+import Moon from '../Icons/Moon';
+import Skull2 from '../Icons/Skull2';
+import CarFreshener from '../Icons/CarFreshener';
 // Episode data
 import { episodeData } from '../../episodeData';
 
@@ -46,6 +56,17 @@ const Slots = (props) => {
     <MicroscopicBeings height={200} width={200} />,
     <Yogurt height={200} width={200} />,
     <Strawberry height={200} width={200} />,
+    <Penis height={200} width={200} />,
+    <SurgeTank />,
+    <HorrifiedFace />,
+    <Cog />,
+    <HuliJingHead />,
+    <Zippo />,
+    <Otto />,
+    <DogTags />,
+    <Moon />,
+    <Skull2 />,
+    <CarFreshener />,
   ];
   const [isRolling, setIsRolling] = useState(false);
   const [previousRandomEpisodeIndex, setPreviousRandomEpisodeIndex] =
@@ -101,19 +122,34 @@ const Slots = (props) => {
     // Animates slot rotation
     setTop(-choosenOption.offsetTop + 2);
 
-    // Set current episode data for details
-    props.setCurrentEpisode(
-      episodeData.filter(
-        (episode) => episode.title === episodeData[randomEpisodeIndex].title
-      )[0]
-    );
+    console.log('Slots.isFirstRollCompleted', props.isFirstRollCompleted);
 
-    setPreviousRandomEpisodeIndex(randomEpisodeIndex);
-    props.setIsEpisodeGenerated(true);
-    props.setFirstRollCompleted(true);
-    setTimeout(() => {
+    // Add delay to detail and background loading if it's first roll
+    if (props.isFirstRollCompleted) {
+      // Set current episode data for details
+      props.setCurrentEpisode(
+        episodeData.filter(
+          (episode) => episode.title === episodeData[randomEpisodeIndex].title
+        )[0]
+      );
+      setPreviousRandomEpisodeIndex(randomEpisodeIndex);
+      props.setIsEpisodeGenerated(true);
+      props.setIsFirstRollCompleted(true);
       setIsRolling(false);
-    }, 700);
+    } else {
+      setTimeout(() => {
+        // Set current episode data for details
+        props.setCurrentEpisode(
+          episodeData.filter(
+            (episode) => episode.title === episodeData[randomEpisodeIndex].title
+          )[0]
+        );
+        setPreviousRandomEpisodeIndex(randomEpisodeIndex);
+        props.setIsEpisodeGenerated(true);
+        props.setIsFirstRollCompleted(true);
+        setIsRolling(false);
+      }, 1200);
+    }
 
     const episodeToGoTo = episodeData[randomEpisodeIndex].title;
 

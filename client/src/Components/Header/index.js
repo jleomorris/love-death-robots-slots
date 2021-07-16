@@ -9,7 +9,7 @@ import DynamicBackground from '../DynamicBackground';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import {
-  yUpAnimation,
+  slideUp,
   enterRight,
   photoAnimation,
   halfWidth,
@@ -18,7 +18,7 @@ import {
 
 const Header = (props) => {
   const [isEpisodeGenerated, setIsEpisodeGenerated] = useState(false);
-  const [firstRollCompleted, setFirstRollCompleted] = useState(false);
+  const [isFirstRollCompleted, setIsFirstRollCompleted] = useState(false);
 
   useEffect(() => {
     if (isEpisodeGenerated === true) {
@@ -59,10 +59,14 @@ const Header = (props) => {
         </StyledDynamicBackground>
       )}
       <StyledTitleSlotsContainer
-        className='title-slots-container'
+        className={`title-slots-container ${
+          isFirstRollCompleted
+            ? 'title-slots-container--details'
+            : 'title-slots-container--homepage'
+        }`}
         variants={halfWidth()}
         initial='hidden'
-        animate={firstRollCompleted ? 'show' : ''}
+        animate={isFirstRollCompleted ? 'show' : 'slideUp'}
       >
         <h1 className='header__title'>
           Random Episode{' '}
@@ -70,8 +74,8 @@ const Header = (props) => {
             Generator
           </span>
         </h1>
-        <div className='img-roll-btn-container'>
-          {/* <Player
+        {/* <div className='img-roll-btn-container'> */}
+        {/* <Player
             playsInline
             poster='/assets/poster.png'
             src='https://media.w3.org/2010/05/sintel/trailer_hd.mp4'
@@ -79,20 +83,27 @@ const Header = (props) => {
             loop
             controls={false}
           /> */}
-          <img className='header__image' src={HeaderImage} alt='header' />
-          {/* <div className='roll-btn'>Roll</div> */}
-        </div>
+        <img
+          className={`header__image ${
+            isFirstRollCompleted ? 'header__image--details' : ''
+          }`}
+          src={HeaderImage}
+          alt='header'
+        />
+        {/* <div className='roll-btn'>Roll</div> */}
+        {/* </div> */}
         {/* <div className='roll-btn'>Roll</div> */}
         <Slots
           setCurrentEpisode={props.setCurrentEpisode}
           setIsEpisodeGenerated={setIsEpisodeGenerated}
-          setFirstRollCompleted={setFirstRollCompleted}
+          isFirstRollCompleted={isFirstRollCompleted}
+          setIsFirstRollCompleted={setIsFirstRollCompleted}
         />
       </StyledTitleSlotsContainer>
       {props.currentEpisode !== undefined && (
         <StyledDetails
           className='details'
-          variants={yUpAnimation(1.5)}
+          variants={slideUp(1.5)}
           initial='hidden'
           animate='show'
           exit='exit'

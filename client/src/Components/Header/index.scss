@@ -7,6 +7,7 @@
   background: url(../../Images/Episode/Backgrounds/General3.jpg);
   z-index: 0;
   overflow: hidden;
+  justify-content: space-between;
   //   filter: blur(2px);
 
   & > * {
@@ -27,19 +28,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
     position: relative;
-    // width: 55%;
-    // flex: 1;
-    // border: 2px solid red;
-    // background: rgb(17, 17, 17);
+    padding-left: 2rem;
+
+    &--homepage {
+      justify-content: center;
+    }
+
+    &--details {
+      justify-content: space-between;
+    }
   }
 
   .details {
     // border: 2px solid blue;
-    flex: 1;
+    // flex: 1;
+    width: 20%;
     //   width: 45%;
-    // height: 80vh;
     color: white;
     position: relative;
     padding: 2rem;
@@ -48,7 +53,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-end;
-    box-shadow: 30px 20px 0px #ff0000a6;
+    // box-shadow: 30px 20px 0px #ff0000a6;
 
     &:empty {
       box-shadow: none !important;
@@ -67,13 +72,13 @@
       font-size: 70px;
       padding: 0;
       margin: 0;
-      max-width: 80%;
+      //   max-width: 80%;
       text-align: end;
     }
 
     &__description {
       font-size: 40px;
-      margin-top: 6rem;
+      //   margin-top: 6rem;
     }
 
     &__secondary-details {
@@ -84,7 +89,7 @@
       align-items: flex-start;
 
       .secondary-detail {
-        margin: 2rem;
+        margin: 1rem;
         // border: 1px solid orange;
 
         &__title {
@@ -94,7 +99,7 @@
         }
 
         &__content {
-          font-size: 50px;
+          font-size: 40px;
           margin: 0;
           font-weight: 900;
         }
@@ -112,6 +117,25 @@
     &--highlighted {
       font-size: 70px;
       font-weight: 900;
+    }
+  }
+
+  &__image {
+    &--home {
+      //   width: 800px;
+      //   position: absolute;
+      //   left: -25px;
+      //   top: -25px;
+      //   opacity: 0.3;
+      //   z-index: -1;
+    }
+    &--details {
+      width: 800px;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      opacity: 0.3;
+      z-index: -1;
     }
   }
 
@@ -145,8 +169,4 @@
   //     box-shadow: 15px 7px 0px #fb420a;
   //     font-size: 40px;
   //   }
-
-  &__image {
-    width: 800px;
-  }
 }
