@@ -58,6 +58,14 @@ const Header = (props) => {
           />
         </StyledDynamicBackground>
       )}
+      {isFirstRollCompleted === true && (
+        <Slots
+          setCurrentEpisode={props.setCurrentEpisode}
+          setIsEpisodeGenerated={setIsEpisodeGenerated}
+          isFirstRollCompleted={isFirstRollCompleted}
+          setIsFirstRollCompleted={setIsFirstRollCompleted}
+        />
+      )}
       <StyledTitleSlotsContainer
         className={`title-slots-container ${
           isFirstRollCompleted
@@ -90,22 +98,21 @@ const Header = (props) => {
           src={HeaderImage}
           alt='header'
         />
-        {/* <div className='roll-btn'>Roll</div> */}
-        {/* </div> */}
-        {/* <div className='roll-btn'>Roll</div> */}
-        <Slots
-          setCurrentEpisode={props.setCurrentEpisode}
-          setIsEpisodeGenerated={setIsEpisodeGenerated}
-          isFirstRollCompleted={isFirstRollCompleted}
-          setIsFirstRollCompleted={setIsFirstRollCompleted}
-        />
+        {isFirstRollCompleted === false && (
+          <Slots
+            setCurrentEpisode={props.setCurrentEpisode}
+            setIsEpisodeGenerated={setIsEpisodeGenerated}
+            isFirstRollCompleted={isFirstRollCompleted}
+            setIsFirstRollCompleted={setIsFirstRollCompleted}
+          />
+        )}
       </StyledTitleSlotsContainer>
       {props.currentEpisode !== undefined && (
         <StyledDetails
           className='details'
           variants={slideUp(1.5)}
           initial='hidden'
-          animate='show'
+          animate={isEpisodeGenerated ? '' : 'show'}
           exit='exit'
         >
           <h2 className='details__episode-number'>
