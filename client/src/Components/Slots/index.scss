@@ -1,23 +1,33 @@
 .slots {
-  //   position: absolute;
-  //   bottom: -300px;
-  //   left: 50%;
-  //   transform: translateX(-50%);
-  //   width: 100%;
   margin: 2rem 0;
+
+  &--details {
+    margin: 1rem 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
 
   .slot {
     position: relative;
     display: inline-block;
-    height: 275px;
-    width: 275px;
+
+    &--homepage {
+      height: 275px;
+      width: 275px;
+    }
+
+    &--details {
+      height: 120px;
+      width: 125px;
+    }
   }
 
   section {
     position: absolute;
     border-radius: 15px !important;
-    width: 260px;
-    height: 260px;
     overflow: hidden;
     background-color: #ffffffc2;
     border-radius: 2px;
@@ -26,26 +36,53 @@
     font-family: sans-serif;
     text-align: center;
     font-size: 150px;
-    line-height: 340px;
+    // line-height: 340px;
     cursor: default;
+  }
+
+  .section--homepage {
+    width: 260px;
+    height: 260px;
+    width: 260px;
+    height: 260px;
+    line-height: 340px;
+  }
+
+  .section--details {
+    height: 110px;
+    width: 110px;
+    line-height: 90px;
   }
 
   .container {
     position: absolute;
     top: 2px;
     width: 100%;
-    transition: top ease-in-out 0.5s;
+    transition: top ease-in-out 1.5s;
     text-align: center;
 
     div {
       span {
         svg {
-          height: 200px;
-          width: 200px;
-
           path {
             fill: #ed3501;
             // stroke: #ed3501;
+          }
+        }
+      }
+
+      .icon-container {
+        &--homepage {
+          svg {
+            height: 200px;
+            width: 200px;
+          }
+        }
+
+        &--details {
+          svg {
+            height: 80px;
+            width: 80px;
           }
         }
       }
