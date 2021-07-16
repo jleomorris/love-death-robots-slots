@@ -124,9 +124,7 @@ const Slots = (props) => {
 
     console.log('Slots.isFirstRollCompleted', props.isFirstRollCompleted);
 
-    // Add delay to detail and background loading if it's first roll
-    if (props.isFirstRollCompleted) {
-      // Set current episode data for details
+    const setEpisodeData = () => {
       props.setCurrentEpisode(
         episodeData.filter(
           (episode) => episode.title === episodeData[randomEpisodeIndex].title
@@ -136,19 +134,16 @@ const Slots = (props) => {
       props.setIsEpisodeGenerated(true);
       props.setIsFirstRollCompleted(true);
       setIsRolling(false);
+    };
+
+    // Add delay to detail and background loading if it's first roll
+    if (props.isFirstRollCompleted) {
+      setEpisodeData();
     } else {
       setTimeout(() => {
         // Set current episode data for details
-        props.setCurrentEpisode(
-          episodeData.filter(
-            (episode) => episode.title === episodeData[randomEpisodeIndex].title
-          )[0]
-        );
-        setPreviousRandomEpisodeIndex(randomEpisodeIndex);
-        props.setIsEpisodeGenerated(true);
-        props.setIsFirstRollCompleted(true);
-        setIsRolling(false);
-      }, 1200);
+        setEpisodeData();
+      }, 2000);
     }
 
     const episodeToGoTo = episodeData[randomEpisodeIndex].title;
@@ -160,35 +155,93 @@ const Slots = (props) => {
   };
 
   return (
-    <div className='slots'>
-      <div className='slot'>
-        <section>
+    <div
+      className={`slots ${
+        props.isFirstRollCompleted ? 'slots--details' : 'slots--homepage'
+      }`}
+    >
+      <div
+        className={`slot ${
+          props.isFirstRollCompleted ? 'slot--details' : 'slot--homepage'
+        }`}
+      >
+        <section
+          className={`section ${
+            props.isFirstRollCompleted
+              ? 'section--details'
+              : 'section--homepage'
+          }`}
+        >
           <div className='container' ref={slotRefs[0]}>
             {icons.map((icon, i) => (
               <div key={i}>
-                <span>{icon}</span>
+                <span
+                  className={`icon-container ${
+                    props.isFirstRollCompleted
+                      ? 'icon-container--details'
+                      : 'icon-container--homepage'
+                  }`}
+                >
+                  {icon}
+                </span>
               </div>
             ))}
           </div>
         </section>
       </div>
-      <div className='slot'>
-        <section>
+      <div
+        className={`slot ${
+          props.isFirstRollCompleted ? 'slot--details' : 'slot--homepage'
+        }`}
+      >
+        <section
+          className={`section ${
+            props.isFirstRollCompleted
+              ? 'section--details'
+              : 'section--homepage'
+          }`}
+        >
           <div className='container' ref={slotRefs[1]}>
             {icons.map((icon) => (
               <div>
-                <span>{icon}</span>
+                <span
+                  className={`icon-container ${
+                    props.isFirstRollCompleted
+                      ? 'icon-container--details'
+                      : 'icon-container--homepage'
+                  }`}
+                >
+                  {icon}
+                </span>
               </div>
             ))}
           </div>
         </section>
       </div>
-      <div className='slot'>
-        <section>
+      <div
+        className={`slot ${
+          props.isFirstRollCompleted ? 'slot--details' : 'slot--homepage'
+        }`}
+      >
+        <section
+          className={`section ${
+            props.isFirstRollCompleted
+              ? 'section--details'
+              : 'section--homepage'
+          }`}
+        >
           <div className='container' ref={slotRefs[2]}>
             {icons.map((icon) => (
               <div>
-                <span>{icon}</span>
+                <span
+                  className={`icon-container ${
+                    props.isFirstRollCompleted
+                      ? 'icon-container--details'
+                      : 'icon-container--homepage'
+                  }`}
+                >
+                  {icon}
+                </span>
               </div>
             ))}
           </div>
