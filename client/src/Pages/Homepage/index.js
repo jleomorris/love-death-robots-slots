@@ -8,11 +8,7 @@ import DynamicBackground from '../../Components/DynamicBackground';
 import { useHistory } from 'react-router';
 // Animation
 import { motion } from 'framer-motion';
-import {
-  pageAnimation,
-  scrollRevealRight,
-  yUpAnimation,
-} from '../../animations';
+import { pageAnimation, scrollRevealRight, slideUp } from '../../animations';
 // import ScrollToTop from '../../components/ScrollToTop';
 // Animation
 import styled from 'styled-components';
@@ -36,7 +32,7 @@ const HomePage = (props) => {
         />
         <StyledTitleSlotsContainer
           className='title-slots-container'
-          variants={yUpAnimation()}
+          variants={slideUp()}
         >
           <h1 className='header__title'>
             Random Episode{' '}

@@ -102,7 +102,7 @@ export const enterRight = {
   show: {
     opacity: 1,
     x: 0,
-    transition: { duration: 1, ease: 'easeOut' },
+    transition: { duration: 1.5, ease: 'easeOut' },
   },
   exit: {
     opacity: 0,
