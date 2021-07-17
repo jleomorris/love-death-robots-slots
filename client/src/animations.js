@@ -69,13 +69,13 @@ export const fadeIn = {
   },
 };
 
-export const fadeOut = {
+export const fadeOut = (delay) => ({
   hidden: { opacity: 1 },
   show: {
     opacity: 0,
-    transition: { duration: 1, ease: 'easeOut', delay: 1.5 },
+    transition: { duration: 1, ease: 'easeOut', delay: delay },
   },
-};
+});
 
 export const photoAnimation = {
   hidden: { scale: 1.5, opacity: 0 },
@@ -110,13 +110,34 @@ export const enterRight = {
   show: {
     opacity: 1,
     x: 0,
-    transition: { duration: 1.5, ease: 'easeOut', delay: 2.5 },
+    transition: { duration: 1, ease: 'easeOut', delay: 2 },
   },
   exit: {
     opacity: 0,
     x: '-200%',
     transition: {
       duration: 0.5,
+    },
+  },
+};
+
+export const leaveLeft = {
+  hidden: (isEpisodeGenerated) => ({
+    opacity: isEpisodeGenerated ? 0 : 1,
+    x: isEpisodeGenerated ? '-20%' : 0,
+    transition: { duration: 0.5 },
+  }),
+  show: {
+    opacity: 0,
+    x: '-20%',
+    transition: { duration: 1, ease: 'easeOut' },
+  },
+  exit: {
+    opacity: 0,
+    x: '-200%',
+    transition: {
+      duration: 2,
+      delay: 2,
     },
   },
 };
