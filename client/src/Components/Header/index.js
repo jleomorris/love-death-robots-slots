@@ -15,6 +15,7 @@ import {
   halfWidth,
   pageAnimation,
 } from '../../animations';
+import { episodeData } from '../../episodeData';
 
 const Header = (props) => {
   const [isEpisodeGenerated, setIsEpisodeGenerated] = useState(false);
@@ -76,28 +77,15 @@ const Header = (props) => {
         initial='hidden'
         animate={isFirstRollCompleted ? 'show' : 'slideUp'}
       >
-        <h1 className='header__title'>
+        <h1 className='header__app-title'>
           Random Episode{' '}
-          <span className='header__title header__title--highlighted'>
+          <span className='header__app-title header__app-title--highlighted'>
             Generator
           </span>
         </h1>
-        {/* <div className='img-roll-btn-container'> */}
-        {/* <Player
-            playsInline
-            poster='/assets/poster.png'
-            src='https://media.w3.org/2010/05/sintel/trailer_hd.mp4'
-            autoPlay
-            loop
-            controls={false}
-          /> */}
-        <img
-          className={`header__image ${
-            isFirstRollCompleted ? 'header__image--details' : ''
-          }`}
-          src={HeaderImage}
-          alt='header'
-        />
+        {isFirstRollCompleted === false && (
+          <img className='header__series-logo' src={HeaderImage} alt='header' />
+        )}
         {isFirstRollCompleted === false && (
           <Slots
             setCurrentEpisode={props.setCurrentEpisode}
@@ -105,6 +93,9 @@ const Header = (props) => {
             isFirstRollCompleted={isFirstRollCompleted}
             setIsFirstRollCompleted={setIsFirstRollCompleted}
           />
+        )}
+        {props.setCurrentEpisode !== undefined && (
+          <h1 className='episode-title'>{props.currentEpisode?.title}</h1>
         )}
       </StyledTitleSlotsContainer>
       {props.currentEpisode !== undefined && (
@@ -118,7 +109,9 @@ const Header = (props) => {
           <h2 className='details__episode-number'>
             #{props.currentEpisode?.episodeNumber}
           </h2>
-          <h2 className='details__title'>{props.currentEpisode?.title}</h2>
+          <h2 className='details__season'>
+            Season {props.currentEpisode?.season}
+          </h2>
           <h2 className='details__description'>
             {props.currentEpisode?.description}
           </h2>
@@ -136,6 +129,11 @@ const Header = (props) => {
               }
             )}
           </div>
+          <img
+            className='details__series-logo'
+            src={HeaderImage}
+            alt='header'
+          />
         </StyledDetails>
       )}
     </motion.div>

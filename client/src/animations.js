@@ -47,7 +47,7 @@ export const projectBannerAnimation = {
 export const halfWidth = (delay) => ({
   hidden: { width: '100%' },
   show: {
-    width: '50%',
+    width: '70%',
     transition: { duration: 0.75, ease: 'easeOut', delay: delay },
   },
 });

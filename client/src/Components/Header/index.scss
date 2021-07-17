@@ -3,8 +3,8 @@
   //   background: #0c0c0c;
   display: flex;
   position: relative;
-  //   background: linear-gradient(90deg, #0e0e0e 15%, rgba(31, 31, 31, 0));
-  background: url(../../Images/Episode/Backgrounds/General3.jpg);
+  //   background: url(../../Images/Episode/Backgrounds/General3.jpg);
+  background: black;
   z-index: 0;
   overflow: hidden;
   justify-content: space-between;
@@ -40,13 +40,19 @@
       flex-direction: column;
       justify-content: space-between;
     }
+
+    .episode-title {
+      font-size: 12rem;
+      color: white;
+      letter-spacing: 2rem;
+      margin: 0;
+      opacity: 0.2;
+      text-align: left;
+    }
   }
 
   .details {
-    // border: 2px solid blue;
-    // flex: 1;
     width: 25%;
-    //   width: 45%;
     color: white;
     position: relative;
     padding: 2rem;
@@ -70,7 +76,7 @@
       color: #ffffff6e;
     }
 
-    &__title {
+    &__season {
       font-size: 70px;
       padding: 0;
       margin: 0;
@@ -80,7 +86,7 @@
 
     &__description {
       font-size: 40px;
-      //   margin-top: 6rem;
+      margin-top: 3rem;
     }
 
     &__secondary-details {
@@ -107,9 +113,18 @@
         }
       }
     }
+
+    &__series-logo {
+      width: 400px;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      opacity: 0.3;
+      z-index: -1;
+    }
   }
 
-  &__title {
+  &__app-title {
     margin: 0;
     color: white;
     font-size: 40px;
@@ -122,53 +137,10 @@
     }
   }
 
-  &__image {
-    &--home {
-      //   width: 800px;
-      //   position: absolute;
-      //   left: -25px;
-      //   top: -25px;
-      //   opacity: 0.3;
-      //   z-index: -1;
-    }
-    &--details {
-      width: 800px;
-      position: absolute;
-      left: 0px;
-      bottom: 0px;
-      opacity: 0.3;
-      z-index: -1;
-    }
-  }
-
   .img-roll-btn-container {
     display: flex;
     // flex-direction: column;
     justify-content: center;
     width: 100%;
-
-    // video {
-    //   object-fit: cover;
-    //   width: 100%;
-    //   height: 100%;
-    //   position: fixed;
-    //   top: 0;
-    //   left: 0;
-    // }
   }
-
-  //   .roll-btn {
-  //     background: white;
-  //     border-radius: 50%;
-  //     height: 300px;
-  //     width: 300px;
-  //     display: flex;
-  //     justify-content: center;
-  //     align-items: center;
-  //     position: absolute;
-  //     top: 100px;
-  //     right: 100px;
-  //     box-shadow: 15px 7px 0px #fb420a;
-  //     font-size: 40px;
-  //   }
 }
