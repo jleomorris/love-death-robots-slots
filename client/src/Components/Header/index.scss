@@ -14,6 +14,12 @@
     filter: blur(0);
   }
 
+  .background-cover {
+    height: 100%;
+    width: 100%;
+    background: black;
+  }
+
   &__background {
     position: absolute;
     top: 0;
@@ -125,7 +131,7 @@
   }
 
   &__app-title {
-    margin: 0;
+    margin-bottom: 30rem;
     color: white;
     font-size: 40px;
     letter-spacing: 6px;

@@ -15,12 +15,14 @@ import {
   halfWidth,
   pageAnimation,
   fadeOut,
+  leaveLeft,
 } from '../../animations';
 import { episodeData } from '../../episodeData';
 
 const Header = (props) => {
   const [isEpisodeGenerated, setIsEpisodeGenerated] = useState();
   const [isFirstRollCompleted, setIsFirstRollCompleted] = useState(false);
+  const [isRolling, setIsRolling] = useState(false);
 
   useEffect(() => {
     if (isEpisodeGenerated === false) {
@@ -39,13 +41,26 @@ const Header = (props) => {
       animate='show'
       exit='exit'
     >
-      {!props.currentEpisode && (
-        <DynamicBackground
-          fileName='General'
-          type='jpg'
-          className='header__background'
-        />
-      )}
+      {/* {isFirstRollCompleted === false && ( */}
+      <StyledDynamicBackground
+        className='styled-dynamic-background'
+        variants={leaveLeft}
+        initial='hidden'
+        animate={isRolling ? 'show' : ''}
+        // animate='show'
+        // custom={isEpisodeGenerated}
+        exit='exit'
+      >
+        {/* {isFirstRollCompleted === true && <div className='background-cover' />} */}
+        {props.currentEpisode === undefined && (
+          <DynamicBackground
+            fileName='General'
+            type='jpg'
+            className='header__background'
+          />
+        )}
+      </StyledDynamicBackground>
+      {/* )} */}
       {props.currentEpisode?.backgroundImg && (
         <StyledDynamicBackground
           className='styled-dynamic-background'
@@ -63,10 +78,13 @@ const Header = (props) => {
       )}
       <Slots
         setCurrentEpisode={props.setCurrentEpisode}
+        currentEpisode={props.currentEpisode}
         isEpisodeGenerated={isEpisodeGenerated}
         setIsEpisodeGenerated={setIsEpisodeGenerated}
         isFirstRollCompleted={isFirstRollCompleted}
         setIsFirstRollCompleted={setIsFirstRollCompleted}
+        isRolling={isRolling}
+        setIsRolling={setIsRolling}
       />
       <StyledTitleSlotsContainer
         className={`title-slots-container ${
@@ -87,7 +105,7 @@ const Header = (props) => {
         {props.setCurrentEpisode !== undefined && (
           <StyledEpisodeTitleContainer
             className='episode-title-container'
-            variants={slideUp(4)}
+            variants={slideUp(3)}
             initial='hidden'
             animate={isEpisodeGenerated ? 'show' : ''}
             exit='exit'
@@ -99,7 +117,7 @@ const Header = (props) => {
       {props.currentEpisode !== undefined && (
         <StyledDetails
           className='details'
-          variants={slideUp(3.5)}
+          variants={slideUp(2.5)}
           initial='hidden'
           animate={isEpisodeGenerated ? 'show' : ''}
           exit='exit'
