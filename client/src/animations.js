@@ -73,7 +73,7 @@ export const fadeOut = {
   hidden: { opacity: 1 },
   show: {
     opacity: 0,
-    transition: { duration: 1, ease: 'easeOut', delay: 2 },
+    transition: { duration: 1, ease: 'easeOut', delay: 1.5 },
   },
 };
 

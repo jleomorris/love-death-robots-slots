@@ -142,7 +142,7 @@ const Slots = (props) => {
         )[0]
       );
       setPreviousRandomEpisodeIndex(randomEpisodeIndex);
-      props.setIsEpisodeGenerated(true);
+      props.setIsEpisodeGenerated(false);
       props.setIsFirstRollCompleted(true);
       setIsRolling(false);
     };
@@ -176,7 +176,7 @@ const Slots = (props) => {
         className='styled-slots-main'
         variants={fadeOut}
         initial='hidden'
-        animate={props.isEpisodeGenerated ? '' : 'show'}
+        animate={props.isEpisodeGenerated ? 'show' : ''}
         exit='exit'
       >
         <div className='slots-main'>

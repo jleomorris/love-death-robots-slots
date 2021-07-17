@@ -19,14 +19,14 @@ import {
 import { episodeData } from '../../episodeData';
 
 const Header = (props) => {
-  const [isEpisodeGenerated, setIsEpisodeGenerated] = useState(false);
+  const [isEpisodeGenerated, setIsEpisodeGenerated] = useState();
   const [isFirstRollCompleted, setIsFirstRollCompleted] = useState(false);
 
   useEffect(() => {
-    if (isEpisodeGenerated === true) {
+    if (isEpisodeGenerated === false) {
       console.log('EPISODE GENERATED');
       setTimeout(() => {
-        setIsEpisodeGenerated(false);
+        setIsEpisodeGenerated(true);
       }, 500);
     }
   }, [isEpisodeGenerated]);
@@ -51,7 +51,7 @@ const Header = (props) => {
           className='styled-dynamic-background'
           variants={enterRight}
           initial='hidden'
-          animate={isEpisodeGenerated ? '' : 'show'}
+          animate={isEpisodeGenerated ? 'show' : ''}
           exit='exit'
         >
           <DynamicBackground
@@ -89,7 +89,7 @@ const Header = (props) => {
             className='episode-title-container'
             variants={slideUp(4)}
             initial='hidden'
-            animate={isEpisodeGenerated ? '' : 'show'}
+            animate={isEpisodeGenerated ? 'show' : ''}
             exit='exit'
           >
             <h1 className='episode-title'>{props.currentEpisode?.title}</h1>
@@ -101,7 +101,7 @@ const Header = (props) => {
           className='details'
           variants={slideUp(3.5)}
           initial='hidden'
-          animate={isEpisodeGenerated ? '' : 'show'}
+          animate={isEpisodeGenerated ? 'show' : ''}
           exit='exit'
         >
           <h2 className='details__episode-number'>
