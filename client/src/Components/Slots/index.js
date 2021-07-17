@@ -1,6 +1,16 @@
 import React, { useState, createRef } from 'react';
 import './index.scss';
 import { useHistory, Link, Redirect } from 'react-router-dom';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import {
+  slideUp,
+  enterRight,
+  photoAnimation,
+  halfWidth,
+  pageAnimation,
+  fadeOut,
+} from '../../animations';
 
 // Icon components
 import CyclopticPyramid from '../Icons/CyclopticPyramid';
@@ -75,6 +85,7 @@ const Slots = (props) => {
 
   const rollHandler = () => {
     setIsRolling(true);
+    props.setCurrentEpisode();
     let randomEpisodeIndex;
 
     // Calculate random index until it's different from the previous pick
@@ -156,106 +167,123 @@ const Slots = (props) => {
 
   return (
     <div
-      className={`slots ${
-        props.isFirstRollCompleted ? 'slots--details' : 'slots--homepage'
-      }`}
+      //   className={`slots ${
+      //     props.isFirstRollCompleted ? 'slots--homepage' : 'slots--homepage'
+      //   }`}
+      className='slots'
     >
-      <div
-        className={`slot ${
-          props.isFirstRollCompleted ? 'slot--details' : 'slot--homepage'
-        }`}
+      <StyledSlotsMain
+        className='styled-slots-main'
+        variants={fadeOut}
+        initial='hidden'
+        animate={props.isEpisodeGenerated ? '' : 'show'}
+        exit='exit'
       >
-        <section
-          className={`section ${
-            props.isFirstRollCompleted
-              ? 'section--details'
-              : 'section--homepage'
-          }`}
-        >
-          <div className='container' ref={slotRefs[0]}>
-            {icons.map((icon, i) => (
-              <div key={i}>
-                <span
-                  className={`icon-container ${
-                    props.isFirstRollCompleted
-                      ? 'icon-container--details'
-                      : 'icon-container--homepage'
-                  }`}
-                >
-                  {icon}
-                </span>
+        <div className='slots-main'>
+          <div
+            className={`slot ${
+              props.isFirstRollCompleted ? 'slot--homepage' : 'slot--homepage'
+            }`}
+          >
+            <section
+              className={`section ${
+                props.isFirstRollCompleted
+                  ? 'section--homepage'
+                  : 'section--homepage'
+              }`}
+            >
+              <div className='container' ref={slotRefs[0]}>
+                {icons.map((icon, i) => (
+                  <div key={i}>
+                    <span
+                      className={`icon-container ${
+                        props.isFirstRollCompleted
+                          ? 'icon-container--homepage'
+                          : 'icon-container--homepage'
+                      }`}
+                    >
+                      {icon}
+                    </span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </section>
           </div>
-        </section>
-      </div>
-      <div
-        className={`slot ${
-          props.isFirstRollCompleted ? 'slot--details' : 'slot--homepage'
-        }`}
-      >
-        <section
-          className={`section ${
-            props.isFirstRollCompleted
-              ? 'section--details'
-              : 'section--homepage'
-          }`}
-        >
-          <div className='container' ref={slotRefs[1]}>
-            {icons.map((icon) => (
-              <div>
-                <span
-                  className={`icon-container ${
-                    props.isFirstRollCompleted
-                      ? 'icon-container--details'
-                      : 'icon-container--homepage'
-                  }`}
-                >
-                  {icon}
-                </span>
+          <div
+            className={`slot ${
+              props.isFirstRollCompleted ? 'slot--homepage' : 'slot--homepage'
+            }`}
+          >
+            <section
+              className={`section ${
+                props.isFirstRollCompleted
+                  ? 'section--homepage'
+                  : 'section--homepage'
+              }`}
+            >
+              <div className='container' ref={slotRefs[1]}>
+                {icons.map((icon) => (
+                  <div>
+                    <span
+                      className={`icon-container ${
+                        props.isFirstRollCompleted
+                          ? 'icon-container--homepage'
+                          : 'icon-container--homepage'
+                      }`}
+                    >
+                      {icon}
+                    </span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </section>
           </div>
-        </section>
-      </div>
-      <div
-        className={`slot ${
-          props.isFirstRollCompleted ? 'slot--details' : 'slot--homepage'
-        }`}
-      >
-        <section
-          className={`section ${
-            props.isFirstRollCompleted
-              ? 'section--details'
-              : 'section--homepage'
-          }`}
-        >
-          <div className='container' ref={slotRefs[2]}>
-            {icons.map((icon) => (
-              <div>
-                <span
-                  className={`icon-container ${
-                    props.isFirstRollCompleted
-                      ? 'icon-container--details'
-                      : 'icon-container--homepage'
-                  }`}
-                >
-                  {icon}
-                </span>
+          <div
+            className={`slot ${
+              props.isFirstRollCompleted ? 'slot--homepage' : 'slot--homepage'
+            }`}
+          >
+            <section
+              className={`section ${
+                props.isFirstRollCompleted
+                  ? 'section--homepage'
+                  : 'section--homepage'
+              }`}
+            >
+              <div className='container' ref={slotRefs[2]}>
+                {icons.map((icon) => (
+                  <div>
+                    <span
+                      className={`icon-container ${
+                        props.isFirstRollCompleted
+                          ? 'icon-container--homepage'
+                          : 'icon-container--homepage'
+                      }`}
+                    >
+                      {icon}
+                    </span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </section>
           </div>
-        </section>
-      </div>
-      <div
-        className={`${!isRolling ? 'roll-btn roll-btn--to-roll' : 'roll-btn'}`}
-        onClick={rollHandler}
-        disabled={isRolling}
-      >
-        Roll
+        </div>
+      </StyledSlotsMain>
+      <div className='slots-cta'>
+        <div
+          className={`${
+            !isRolling ? 'roll-btn roll-btn--to-roll' : 'roll-btn'
+          }`}
+          onClick={rollHandler}
+          disabled={isRolling}
+        >
+          Roll
+        </div>
       </div>
     </div>
   );
 };
+
+const StyledSlotsMain = styled(motion.div)``;
 
 export default Slots;

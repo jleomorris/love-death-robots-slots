@@ -61,11 +61,19 @@ export const slideUp = (delay) => ({
   },
 });
 
-export const fade = {
+export const fadeIn = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: { duration: 0.75, ease: 'easeOut' },
+  },
+};
+
+export const fadeOut = {
+  hidden: { opacity: 1 },
+  show: {
+    opacity: 0,
+    transition: { duration: 1, ease: 'easeOut', delay: 2 },
   },
 };
 
@@ -102,7 +110,7 @@ export const enterRight = {
   show: {
     opacity: 1,
     x: 0,
-    transition: { duration: 1.5, ease: 'easeOut' },
+    transition: { duration: 1.5, ease: 'easeOut', delay: 2.5 },
   },
   exit: {
     opacity: 0,

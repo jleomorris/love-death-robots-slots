@@ -14,6 +14,7 @@ import {
   photoAnimation,
   halfWidth,
   pageAnimation,
+  fadeOut,
 } from '../../animations';
 import { episodeData } from '../../episodeData';
 
@@ -23,6 +24,7 @@ const Header = (props) => {
 
   useEffect(() => {
     if (isEpisodeGenerated === true) {
+      console.log('EPISODE GENERATED');
       setTimeout(() => {
         setIsEpisodeGenerated(false);
       }, 500);
@@ -59,14 +61,13 @@ const Header = (props) => {
           />
         </StyledDynamicBackground>
       )}
-      {isFirstRollCompleted === true && (
-        <Slots
-          setCurrentEpisode={props.setCurrentEpisode}
-          setIsEpisodeGenerated={setIsEpisodeGenerated}
-          isFirstRollCompleted={isFirstRollCompleted}
-          setIsFirstRollCompleted={setIsFirstRollCompleted}
-        />
-      )}
+      <Slots
+        setCurrentEpisode={props.setCurrentEpisode}
+        isEpisodeGenerated={isEpisodeGenerated}
+        setIsEpisodeGenerated={setIsEpisodeGenerated}
+        isFirstRollCompleted={isFirstRollCompleted}
+        setIsFirstRollCompleted={setIsFirstRollCompleted}
+      />
       <StyledTitleSlotsContainer
         className={`title-slots-container ${
           isFirstRollCompleted
@@ -83,25 +84,22 @@ const Header = (props) => {
             Generator
           </span>
         </h1>
-        {isFirstRollCompleted === false && (
-          <img className='header__series-logo' src={HeaderImage} alt='header' />
-        )}
-        {isFirstRollCompleted === false && (
-          <Slots
-            setCurrentEpisode={props.setCurrentEpisode}
-            setIsEpisodeGenerated={setIsEpisodeGenerated}
-            isFirstRollCompleted={isFirstRollCompleted}
-            setIsFirstRollCompleted={setIsFirstRollCompleted}
-          />
-        )}
         {props.setCurrentEpisode !== undefined && (
-          <h1 className='episode-title'>{props.currentEpisode?.title}</h1>
+          <StyledEpisodeTitleContainer
+            className='episode-title-container'
+            variants={slideUp(4)}
+            initial='hidden'
+            animate={isEpisodeGenerated ? '' : 'show'}
+            exit='exit'
+          >
+            <h1 className='episode-title'>{props.currentEpisode?.title}</h1>
+          </StyledEpisodeTitleContainer>
         )}
       </StyledTitleSlotsContainer>
       {props.currentEpisode !== undefined && (
         <StyledDetails
           className='details'
-          variants={slideUp(1.5)}
+          variants={slideUp(3.5)}
           initial='hidden'
           animate={isEpisodeGenerated ? '' : 'show'}
           exit='exit'
@@ -142,6 +140,7 @@ const Header = (props) => {
 
 // Styled components
 const StyledTitleSlotsContainer = styled(motion.div)``;
+const StyledEpisodeTitleContainer = styled(motion.div)``;
 const StyledDetails = styled(motion.div)``;
 const StyledDynamicBackground = styled(motion.div)`
   /* border: 1px solid red; */

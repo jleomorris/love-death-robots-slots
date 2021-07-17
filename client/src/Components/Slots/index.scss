@@ -1,5 +1,10 @@
 .slots {
   margin: 2rem 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
 
   &--details {
     margin: 1rem 0;
@@ -8,6 +13,14 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
+  }
+
+  &--homepage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
   }
 
   .slot {
@@ -29,9 +42,9 @@
     position: absolute;
     border-radius: 15px !important;
     overflow: hidden;
-    background-color: #ffffffc2;
+    // background-color: #ffffffc2;
     border-radius: 2px;
-    border: 1px solid lightgrey;
+    // border: 1px solid lightgrey;
     color: white;
     font-family: sans-serif;
     text-align: center;
