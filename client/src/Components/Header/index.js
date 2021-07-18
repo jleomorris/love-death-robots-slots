@@ -114,6 +114,8 @@ const Header = (props) => {
             exit='exit'
           >
             <h1 className='episode-title'>{props.currentEpisode?.title}</h1>
+            <h1 className='episode-title'>{props.currentEpisode?.title}</h1>
+            <h1 className='episode-title'>{props.currentEpisode?.title}</h1>
           </StyledEpisodeTitleContainer>
         )}
       </StyledTitleSlotsContainer>
