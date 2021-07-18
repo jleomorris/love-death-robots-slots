@@ -45,12 +45,14 @@ import CarFreshener from '../Icons/CarFreshener';
 import Hook from '../Icons/Hook';
 import Night from '../Icons/Night';
 import RoadSign from '../Icons/RoadSign';
+import QuestionMark from '../Icons/QuestionMark';
 // Episode data
 import { episodeData } from '../../episodeData';
 
 const Slots = (props) => {
   const history = useHistory();
   const icons = [
+    <QuestionMark />,
     <Barn height={200} width={200} />,
     <CyclopticPyramid height={200} width={200} />,
     <BloodLike height={200} width={200} />,
