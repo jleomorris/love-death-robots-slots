@@ -211,7 +211,7 @@ export const episodeData = [
     },
     description:
       'After their car breaks down in the desert, two salesmen take a dreamlike voyage to the dawn of time.',
-    icons: ['blood_like', 'barn', 'cycloptic_pyramid'],
+    icons: ['night', 'road_sign', 'hook'],
     backgroundImg: 'Fish_Night',
     rating: 6.4,
   },
@@ -229,7 +229,7 @@ export const episodeData = [
     },
     description:
       "After the drop-ship Lucky 13 lost two crews, no pilot would fly her... but rookies don't get a choice.",
-    icons: ['blood_like', 'barn', 'cycloptic_pyramid'],
+    icons: ['human_heart', 'x_2', 'horseshoe'],
     backgroundImg: 'Lucky_13',
     rating: 7.5,
   },
@@ -247,7 +247,7 @@ export const episodeData = [
     },
     description:
       'The renowned artist Zima recounts his mysterious past and rise to fame before unveiling his final work.',
-    icons: ['blood_like', 'barn', 'cycloptic_pyramid'],
+    icons: ['square', 'square', 'square'],
     backgroundImg: 'Zima_Blue',
     rating: 8.4,
   },

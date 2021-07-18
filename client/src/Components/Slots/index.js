@@ -46,17 +46,20 @@ import Hook from '../Icons/Hook';
 import Night from '../Icons/Night';
 import RoadSign from '../Icons/RoadSign';
 import QuestionMark from '../Icons/QuestionMark';
+import Horseshoe from '../Icons/Horseshoe';
+import HumanHeart from '../Icons/HumanHeart';
+import Square from '../Icons/Square';
 // Episode data
 import { episodeData } from '../../episodeData';
 
 const Slots = (props) => {
   const history = useHistory();
   const icons = [
-    <QuestionMark />,
+    // <QuestionMark />,
+    <Heart height={200} width={200} />,
     <Barn height={200} width={200} />,
     <CyclopticPyramid height={200} width={200} />,
     <BloodLike height={200} width={200} />,
-    <Heart height={200} width={200} />,
     <Snake height={200} width={200} />,
     <X2 height={200} width={200} />,
     <OneEyedSkull height={200} width={200} />,
@@ -85,6 +88,9 @@ const Slots = (props) => {
     <Hook />,
     <Night />,
     <RoadSign />,
+    <Horseshoe />,
+    <HumanHeart />,
+    <Square />,
   ];
   //   const [isRolling, setIsRolling] = useState(false);
   const [previousRandomEpisodeIndex, setPreviousRandomEpisodeIndex] =
