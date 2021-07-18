@@ -42,6 +42,9 @@ import DogTags from '../Icons/DogTags';
 import Moon from '../Icons/Moon';
 import Skull2 from '../Icons/Skull2';
 import CarFreshener from '../Icons/CarFreshener';
+import Hook from '../Icons/Hook';
+import Night from '../Icons/Night';
+import RoadSign from '../Icons/RoadSign';
 // Episode data
 import { episodeData } from '../../episodeData';
 
@@ -77,14 +80,18 @@ const Slots = (props) => {
     <Moon />,
     <Skull2 />,
     <CarFreshener />,
+    <Hook />,
+    <Night />,
+    <RoadSign />,
   ];
-  const [isRolling, setIsRolling] = useState(false);
+  //   const [isRolling, setIsRolling] = useState(false);
   const [previousRandomEpisodeIndex, setPreviousRandomEpisodeIndex] =
     useState();
   const slotRefs = [createRef(), createRef(), createRef()];
 
   const rollHandler = () => {
-    setIsRolling(true);
+    props.setEpisodesGenerated((prev) => prev + 1);
+    props.setIsRolling(true);
     props.setCurrentEpisode();
     let randomEpisodeIndex;
 
@@ -144,7 +151,7 @@ const Slots = (props) => {
       setPreviousRandomEpisodeIndex(randomEpisodeIndex);
       props.setIsEpisodeGenerated(false);
       props.setIsFirstRollCompleted(true);
-      setIsRolling(false);
+      props.setIsRolling(false);
     };
 
     // Add delay to detail and background loading if it's first roll
@@ -174,7 +181,7 @@ const Slots = (props) => {
     >
       <StyledSlotsMain
         className='styled-slots-main'
-        variants={fadeOut}
+        variants={props.episodesGenerated === 1 ? fadeOut(0) : fadeOut(1.5)}
         initial='hidden'
         animate={props.isEpisodeGenerated ? 'show' : ''}
         exit='exit'
@@ -272,10 +279,10 @@ const Slots = (props) => {
       <div className='slots-cta'>
         <div
           className={`${
-            !isRolling ? 'roll-btn roll-btn--to-roll' : 'roll-btn'
+            !props.isRolling ? 'roll-btn roll-btn--to-roll' : 'roll-btn'
           }`}
           onClick={rollHandler}
-          disabled={isRolling}
+          disabled={props.isRolling}
         >
           Roll
         </div>

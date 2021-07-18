@@ -23,6 +23,7 @@ const Header = (props) => {
   const [isEpisodeGenerated, setIsEpisodeGenerated] = useState();
   const [isFirstRollCompleted, setIsFirstRollCompleted] = useState(false);
   const [isRolling, setIsRolling] = useState(false);
+  const [episodesGenerated, setEpisodesGenerated] = useState(0);
 
   useEffect(() => {
     if (isEpisodeGenerated === false) {
@@ -64,7 +65,7 @@ const Header = (props) => {
       {props.currentEpisode?.backgroundImg && (
         <StyledDynamicBackground
           className='styled-dynamic-background'
-          variants={enterRight}
+          variants={episodesGenerated === 1 ? enterRight(0.5) : enterRight(2)}
           initial='hidden'
           animate={isEpisodeGenerated ? 'show' : ''}
           exit='exit'
@@ -85,6 +86,8 @@ const Header = (props) => {
         setIsFirstRollCompleted={setIsFirstRollCompleted}
         isRolling={isRolling}
         setIsRolling={setIsRolling}
+        episodesGenerated={episodesGenerated}
+        setEpisodesGenerated={setEpisodesGenerated}
       />
       <StyledTitleSlotsContainer
         className={`title-slots-container ${
@@ -105,7 +108,7 @@ const Header = (props) => {
         {props.setCurrentEpisode !== undefined && (
           <StyledEpisodeTitleContainer
             className='episode-title-container'
-            variants={slideUp(3)}
+            variants={episodesGenerated === 1 ? slideUp(2) : slideUp(3)}
             initial='hidden'
             animate={isEpisodeGenerated ? 'show' : ''}
             exit='exit'
@@ -117,7 +120,7 @@ const Header = (props) => {
       {props.currentEpisode !== undefined && (
         <StyledDetails
           className='details'
-          variants={slideUp(2.5)}
+          variants={episodesGenerated === 1 ? slideUp(1.5) : slideUp(2.5)}
           initial='hidden'
           animate={isEpisodeGenerated ? 'show' : ''}
           exit='exit'

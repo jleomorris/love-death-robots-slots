@@ -105,12 +105,12 @@ export const sliderContainer = {
   show: { opacity: 1, transition: { staggerChildren: 0.15, ease: 'easeOut' } },
 };
 
-export const enterRight = {
+export const enterRight = (delay) => ({
   hidden: { opacity: 0, x: '100%', transition: { duration: 0.5 } },
   show: {
     opacity: 1,
     x: 0,
-    transition: { duration: 1, ease: 'easeOut', delay: 2 },
+    transition: { duration: 1, ease: 'easeOut', delay: delay },
   },
   exit: {
     opacity: 0,
@@ -119,7 +119,7 @@ export const enterRight = {
       duration: 0.5,
     },
   },
-};
+});
 
 export const leaveLeft = {
   hidden: (isEpisodeGenerated) => ({
