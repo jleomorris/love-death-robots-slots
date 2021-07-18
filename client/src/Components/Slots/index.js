@@ -145,15 +145,15 @@ const Slots = (props) => {
     console.log('Slots.isFirstRollCompleted', props.isFirstRollCompleted);
 
     const setEpisodeData = () => {
+      setPreviousRandomEpisodeIndex(randomEpisodeIndex);
+      props.setIsEpisodeGenerated(false);
+      props.setIsFirstRollCompleted(true);
+      //   props.setIsRolling(false);
       props.setCurrentEpisode(
         episodeData.filter(
           (episode) => episode.title === episodeData[randomEpisodeIndex].title
         )[0]
       );
-      setPreviousRandomEpisodeIndex(randomEpisodeIndex);
-      props.setIsEpisodeGenerated(false);
-      props.setIsFirstRollCompleted(true);
-      props.setIsRolling(false);
     };
 
     // Add delay to detail and background loading if it's first roll
@@ -168,10 +168,9 @@ const Slots = (props) => {
 
     const episodeToGoTo = episodeData[randomEpisodeIndex].title;
 
-    // setTimeout(() => {
-    //   history.push(episodeToGoTo);
-    // }, 1400);
-    // history.push(episodeToGoTo);
+    setTimeout(() => {
+      props.setIsRolling(false);
+    }, 4000);
   };
 
   return (
@@ -280,8 +279,12 @@ const Slots = (props) => {
       </StyledSlotsMain>
       <div className='slots-cta'>
         <div
-          className={`${
-            !props.isRolling ? 'roll-btn roll-btn--to-roll' : 'roll-btn'
+          className={`roll-btn ${
+            props.episodesGenerated > 0 ? 'roll-btn--detailpage' : ''
+          } ${
+            props.isRolling === false
+              ? ' roll-btn--to-roll'
+              : ' roll-btn--rolling'
           }`}
           onClick={rollHandler}
           disabled={props.isRolling}
