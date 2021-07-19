@@ -30,6 +30,12 @@
     z-index: -1;
   }
 
+  .styled-background-image {
+    &--homepage {
+      background: linear-gradient(90deg, #0c0c0c 8%, rgba(31, 31, 31, 0));
+    }
+  }
+
   .title-slots-container {
     display: flex;
     align-items: center;

@@ -58,6 +58,7 @@ const Header = (props) => {
             fileName='General'
             type='jpg'
             className='header__background'
+            isHomepage
           />
         )}
       </StyledDynamicBackground>
