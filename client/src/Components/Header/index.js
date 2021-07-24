@@ -16,6 +16,8 @@ import {
   pageAnimation,
   fadeOut,
   leaveLeft,
+  fadeIn,
+  fadeInOut,
 } from '../../animations';
 import { episodeData } from '../../episodeData';
 
@@ -27,7 +29,6 @@ const Header = (props) => {
 
   useEffect(() => {
     if (isEpisodeGenerated === false) {
-      console.log('EPISODE GENERATED');
       setTimeout(() => {
         setIsEpisodeGenerated(true);
       }, 500);
@@ -100,12 +101,17 @@ const Header = (props) => {
         initial='hidden'
         animate={isFirstRollCompleted ? 'show' : 'slideUp'}
       >
-        <h1 className='header__app-title'>
-          Random Episode{' '}
-          <span className='header__app-title header__app-title--highlighted'>
-            Generator
-          </span>
-        </h1>
+        <StyledAppTitleContainer
+          variants={fadeIn}
+          animate={isFirstRollCompleted ? 'animate' : ''}
+        >
+          <h1 className='header__app-title'>
+            Random Episode{' '}
+            <span className='header__app-title header__app-title--highlighted'>
+              Generator
+            </span>
+          </h1>
+        </StyledAppTitleContainer>
         {props.setCurrentEpisode !== undefined && (
           <StyledEpisodeTitleContainer
             className='episode-title-container'
@@ -166,6 +172,7 @@ const Header = (props) => {
 const StyledTitleSlotsContainer = styled(motion.div)``;
 const StyledEpisodeTitleContainer = styled(motion.div)``;
 const StyledDetails = styled(motion.div)``;
+const StyledAppTitleContainer = styled(motion.div)``;
 const StyledDynamicBackground = styled(motion.div)`
   /* border: 1px solid red; */
   position: absolute;

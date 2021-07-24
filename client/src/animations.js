@@ -62,6 +62,10 @@ export const slideUp = (delay) => ({
 });
 
 export const fadeIn = {
+  animate: {
+    opacity: [0, 0.25, 0.5, 0.75, 1],
+    transition: { duration: 6, ease: 'easeOut' },
+  },
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
