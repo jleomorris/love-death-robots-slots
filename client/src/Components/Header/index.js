@@ -5,6 +5,7 @@ import Slots from '../Slots';
 import { Player } from 'video-react';
 // Components
 import DynamicBackground from '../DynamicBackground';
+import DynamicEpisodeIcon from '../DynamicEpisodeIcon';
 // Animation
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -142,6 +143,13 @@ const Header = (props) => {
           <h2 className='details__season'>
             Season {props.currentEpisode?.season}
           </h2>
+          {props?.currentEpisode?.icons && (
+            <div className='episode-icons'>
+              {props.currentEpisode.icons.map((icon) => (
+                <DynamicEpisodeIcon fileName={icon} />
+              ))}
+            </div>
+          )}
           <h2 className='details__description'>
             {props.currentEpisode?.description}
           </h2>

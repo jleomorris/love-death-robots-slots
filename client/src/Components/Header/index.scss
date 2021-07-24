@@ -96,6 +96,24 @@
     align-items: flex-end;
     // box-shadow: 30px 20px 0px #ff0000a6;
 
+    .episode-icons {
+      width: 100%;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-evenly;
+      opacity: 0.8;
+
+      svg {
+        height: 100px;
+        width: 100px;
+
+        g,
+        path {
+          fill: #ed3501 !important;
+        }
+      }
+    }
+
     &:empty {
       box-shadow: none !important;
     }
