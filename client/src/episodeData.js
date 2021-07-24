@@ -265,7 +265,7 @@ export const episodeData = [
     },
     description:
       'A gang of cyborg thieves stage a high-speed heist of a heavily armored convoy.',
-    icons: ['blood_like', 'barn', 'cycloptic_pyramid'],
+    icons: ['imp', 'skull_and_crossbones', 'thumbs_up'],
     backgroundImg: 'Blind_Spot',
     rating: 6.4,
   },
@@ -283,7 +283,7 @@ export const episodeData = [
     },
     description:
       'A young couple moves into an apartment and finds a lost civilization inside their antique freezer.',
-    icons: ['blood_like', 'barn', 'cycloptic_pyramid'],
+    icons: ['plug_socket', 'ice_cube', 'mushroom_cloud'],
     backgroundImg: 'Ice_Age',
     rating: 7.0,
   },
@@ -301,7 +301,7 @@ export const episodeData = [
     },
     description:
       'Want to see Hitler die in a variety of comically fantastic ways? Now you can. Welcome to Multiversity!',
-    icons: ['blood_like', 'barn', 'cycloptic_pyramid'],
+    icons: ['x_2', 'x_2', 'clock'],
     backgroundImg: 'Alternate_Histories',
     rating: 6.4,
   },
@@ -319,7 +319,7 @@ export const episodeData = [
     },
     description:
       'Elite units of the Red Army fight an unholy evil deep in the ancient forests of Siberia.',
-    icons: ['blood_like', 'barn', 'cycloptic_pyramid'],
+    icons: ['skull_2', 'skull_2', 'star'],
     backgroundImg: 'The_Secret_War',
     rating: 8.2,
   },
