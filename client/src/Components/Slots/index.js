@@ -11,11 +11,13 @@ import {
   pageAnimation,
   fadeOut,
 } from '../../animations';
+// Episode data
+import { episodeData } from '../../episodeData';
 
 // Icon components
 import CyclopticPyramid from '../Icons/CyclopticPyramid';
 import Barn from '../Icons/Barn';
-import BloodLike from '../Icons/BloodLike';
+import ThumbsUp from '../Icons/ThumbsUp';
 import Heart from '../Icons/Heart';
 import Snake from '../Icons/Snake';
 import X2 from '../Icons/X2';
@@ -49,8 +51,13 @@ import QuestionMark from '../Icons/QuestionMark';
 import Horseshoe from '../Icons/Horseshoe';
 import HumanHeart from '../Icons/HumanHeart';
 import Square from '../Icons/Square';
-// Episode data
-import { episodeData } from '../../episodeData';
+import Imp from '../Icons/Imp';
+import SkullAndCrossbones from '../Icons/SkullAndCrossbones';
+import PlugSocket from '../Icons/PlugSocket';
+import IceCube from '../Icons/IceCube';
+import MushroomCloud from '../Icons/MushroomCloud';
+import Clock from '../Icons/Clock';
+import Star from '../Icons/Star';
 
 const Slots = (props) => {
   const history = useHistory();
@@ -59,7 +66,7 @@ const Slots = (props) => {
     <Heart height={200} width={200} />,
     <Barn height={200} width={200} />,
     <CyclopticPyramid height={200} width={200} />,
-    <BloodLike height={200} width={200} />,
+    <ThumbsUp height={200} width={200} />,
     <Snake height={200} width={200} />,
     <X2 height={200} width={200} />,
     <OneEyedSkull height={200} width={200} />,
@@ -91,6 +98,13 @@ const Slots = (props) => {
     <Horseshoe />,
     <HumanHeart />,
     <Square />,
+    <Imp />,
+    <SkullAndCrossbones />,
+    <PlugSocket />,
+    <IceCube />,
+    <MushroomCloud />,
+    <Clock />,
+    <Star />,
   ];
   //   const [isRolling, setIsRolling] = useState(false);
   const [previousRandomEpisodeIndex, setPreviousRandomEpisodeIndex] =
