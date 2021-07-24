@@ -63,12 +63,12 @@ const Slots = (props) => {
   const history = useHistory();
   const icons = [
     // <QuestionMark />,
+    <X2 height={200} width={200} />,
     <Heart height={200} width={200} />,
     <Barn height={200} width={200} />,
     <CyclopticPyramid height={200} width={200} />,
     <ThumbsUp height={200} width={200} />,
     <Snake height={200} width={200} />,
-    <X2 height={200} width={200} />,
     <OneEyedSkull height={200} width={200} />,
     <DrippingHamburger height={200} width={200} />,
     <KinkyMask height={200} width={200} />,

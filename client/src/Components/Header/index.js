@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import {
   slideUp,
+  slideDown,
   enterRight,
   photoAnimation,
   halfWidth,
@@ -43,17 +44,19 @@ const Header = (props) => {
       animate='show'
       exit='exit'
     >
-      {/* {isFirstRollCompleted === false && ( */}
+      <StyledSeriesLogo
+        variants={slideDown()}
+        animate={isFirstRollCompleted ? 'show' : ''}
+      >
+        <img className='header__series-logo' src={HeaderImage} alt='header' />
+      </StyledSeriesLogo>
       <StyledDynamicBackground
         className='styled-dynamic-background'
         variants={leaveLeft}
         initial='hidden'
         animate={isRolling ? 'show' : ''}
-        // animate='show'
-        // custom={isEpisodeGenerated}
         exit='exit'
       >
-        {/* {isFirstRollCompleted === true && <div className='background-cover' />} */}
         {props.currentEpisode === undefined && (
           <DynamicBackground
             fileName='General'
@@ -63,7 +66,6 @@ const Header = (props) => {
           />
         )}
       </StyledDynamicBackground>
-      {/* )} */}
       {props.currentEpisode?.backgroundImg && (
         <StyledDynamicBackground
           className='styled-dynamic-background'
@@ -157,11 +159,6 @@ const Header = (props) => {
               }
             )}
           </div>
-          <img
-            className='details__series-logo'
-            src={HeaderImage}
-            alt='header'
-          />
         </StyledDetails>
       )}
     </motion.div>
@@ -173,6 +170,14 @@ const StyledTitleSlotsContainer = styled(motion.div)``;
 const StyledEpisodeTitleContainer = styled(motion.div)``;
 const StyledDetails = styled(motion.div)``;
 const StyledAppTitleContainer = styled(motion.div)``;
+const StyledSeriesLogo = styled(motion.div)`
+  width: 400px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  opacity: 0.3;
+  z-index: 1;
+`;
 const StyledDynamicBackground = styled(motion.div)`
   /* border: 1px solid red; */
   position: absolute;

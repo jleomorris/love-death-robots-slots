@@ -61,6 +61,15 @@ export const slideUp = (delay) => ({
   },
 });
 
+export const slideDown = (delay) => ({
+  hidden: { y: 0, opacity: 1 },
+  show: {
+    y: 80,
+    opacity: 0.2,
+    transition: { duration: 0.75, ease: 'easeOut', delay: delay },
+  },
+});
+
 export const fadeIn = {
   animate: {
     opacity: [0, 0.25, 0.5, 0.75, 1],
@@ -110,7 +119,7 @@ export const sliderContainer = {
 };
 
 export const enterRight = (delay) => ({
-  hidden: { opacity: 0, x: '100%', transition: { duration: 0.5 } },
+  hidden: { opacity: 0, x: '100%', transition: { duration: 0.1 } },
   show: {
     opacity: 1,
     x: 0,

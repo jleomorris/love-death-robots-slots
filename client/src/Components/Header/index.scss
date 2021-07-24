@@ -20,6 +20,10 @@
     background: black;
   }
 
+  &__series-logo {
+    width: 400px;
+  }
+
   &__background {
     position: absolute;
     top: 0;
@@ -141,15 +145,6 @@
           font-weight: 900;
         }
       }
-    }
-
-    &__series-logo {
-      width: 400px;
-      position: absolute;
-      right: 10px;
-      bottom: 10px;
-      opacity: 0.3;
-      z-index: -1;
     }
   }
 
