@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.757f5d4b.chunk.css",
-    "main.js": "/static/js/main.354ef103.chunk.js",
-    "main.js.map": "/static/js/main.354ef103.chunk.js.map",
+    "main.js": "/static/js/main.04e41276.chunk.js",
+    "main.js.map": "/static/js/main.04e41276.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.a6aff35e.js",
     "runtime-main.js.map": "/static/js/runtime-main.a6aff35e.js.map",
-    "static/js/2.3a64a6dc.chunk.js": "/static/js/2.3a64a6dc.chunk.js",
-    "static/js/2.3a64a6dc.chunk.js.map": "/static/js/2.3a64a6dc.chunk.js.map",
+    "static/js/2.db58ae07.chunk.js": "/static/js/2.db58ae07.chunk.js",
+    "static/js/2.db58ae07.chunk.js.map": "/static/js/2.db58ae07.chunk.js.map",
     "static/js/3.dd9126ac.chunk.js": "/static/js/3.dd9126ac.chunk.js",
     "static/js/3.dd9126ac.chunk.js.map": "/static/js/3.dd9126ac.chunk.js.map",
     "static/js/4.d6e3526c.chunk.js": "/static/js/4.d6e3526c.chunk.js",
@@ -95,7 +95,7 @@
     "static/js/45.9f8be749.chunk.js.map": "/static/js/45.9f8be749.chunk.js.map",
     "index.html": "/index.html",
     "static/css/main.757f5d4b.chunk.css.map": "/static/css/main.757f5d4b.chunk.css.map",
-    "static/js/2.3a64a6dc.chunk.js.LICENSE.txt": "/static/js/2.3a64a6dc.chunk.js.LICENSE.txt",
+    "static/js/2.db58ae07.chunk.js.LICENSE.txt": "/static/js/2.db58ae07.chunk.js.LICENSE.txt",
     "static/media/1.jpg": "/static/media/1.ba758ade.jpg",
     "static/media/10.jpg": "/static/media/10.48e38254.jpg",
     "static/media/11.jpg": "/static/media/11.cfdf1014.jpg",
@@ -138,12 +138,14 @@
     "static/media/The_Witness_2.jpg": "/static/media/The_Witness_2.8d640c08.jpg",
     "static/media/Three_Robots.jpg": "/static/media/Three_Robots.984043aa.jpg",
     "static/media/When_The_Yoghurt_Took_Over.jpg": "/static/media/When_The_Yoghurt_Took_Over.dbbc71ad.jpg",
-    "static/media/Zima_Blue.jpg": "/static/media/Zima_Blue.c131133b.jpg"
+    "static/media/Zima_Blue.jpg": "/static/media/Zima_Blue.c131133b.jpg",
+    "static/media/github.c9e3c9a3.svg": "/static/media/github.c9e3c9a3.svg",
+    "static/media/linkedin.d526a6d2.svg": "/static/media/linkedin.d526a6d2.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.a6aff35e.js",
-    "static/js/2.3a64a6dc.chunk.js",
+    "static/js/2.db58ae07.chunk.js",
     "static/css/main.757f5d4b.chunk.css",
-    "static/js/main.354ef103.chunk.js"
+    "static/js/main.04e41276.chunk.js"
   ]
 }
