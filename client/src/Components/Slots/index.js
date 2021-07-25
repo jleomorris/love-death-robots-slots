@@ -318,7 +318,19 @@ const Slots = (props) => {
           onClick={rollHandler}
           disabled={props.isRolling}
         >
-          Roll
+          Random
+        </div>
+        <div
+          className={`btn ${
+            props.episodesGenerated === 0 ? 'btn--homepage' : ''
+          } ${props.episodesGenerated > 0 ? 'btn--trans-white' : ''} ${
+            props.isRolling === false ? 'btn--blink' : 'btn--hide'
+          }`}
+          onClick={() =>
+            props.setAreAllEpisodesVisible(!props.areAllEpisodesVisible)
+          }
+        >
+          All episodes
         </div>
       </div>
     </div>

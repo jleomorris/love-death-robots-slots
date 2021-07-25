@@ -119,6 +119,12 @@
     animation: blinkingText 1.2s infinite;
   }
 
+  .slots-cta {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
   @keyframes blinkingText {
     0% {
       color: #000;

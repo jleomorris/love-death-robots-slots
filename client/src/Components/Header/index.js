@@ -199,11 +199,6 @@ const Header = (props) => {
               }
             )}
           </div>
-          <button
-            onClick={() => setAreAllEpisodesVisible(!areAllEpisodesVisible)}
-          >
-            All episodes
-          </button>
         </StyledDetails>
       )}
     </motion.div>
