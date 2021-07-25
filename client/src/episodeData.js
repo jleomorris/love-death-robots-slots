@@ -194,7 +194,7 @@ export const episodeData = [
     description:
       'Stranded in orbit, an astronaut must choose between life and limb before her oxygen runs out.',
     icons: ['heart', 'skull_2', 'car_freshener'],
-    backgroundImg: 'Helping_Hand',
+    backgroundImg: 'Helping_Hand_2',
     rating: 7.4,
   },
   {
