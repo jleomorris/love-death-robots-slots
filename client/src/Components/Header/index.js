@@ -47,13 +47,6 @@ const Header = (props) => {
       animate='show'
       exit='exit'
     >
-      {areAllEpisodesVisible === true && (
-        <AllEpisodes
-          areAllEpisodesVisible={areAllEpisodesVisible}
-          setAreAllEpisodesVisible={setAreAllEpisodesVisible}
-          setCurrentEpisode={props.setCurrentEpisode}
-        />
-      )}
       <StyledSeriesLogo
         variants={slideDown()}
         animate={isFirstRollCompleted ? 'show' : ''}
@@ -102,6 +95,8 @@ const Header = (props) => {
         setIsRolling={setIsRolling}
         episodesGenerated={episodesGenerated}
         setEpisodesGenerated={setEpisodesGenerated}
+        areAllEpisodesVisible={areAllEpisodesVisible}
+        setAreAllEpisodesVisible={setAreAllEpisodesVisible}
       />
       <StyledTitleSlotsContainer
         className={`title-slots-container ${

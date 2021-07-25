@@ -20,6 +20,7 @@ const AllEpisodes = (props) => {
           setCurrentEpisode={props.setCurrentEpisode}
           areAllEpisodesVisible={props.areAllEpisodesVisible}
           setAreAllEpisodesVisible={props.setAreAllEpisodesVisible}
+          rollHandler={props.rollHandler}
         />
       ))}
     </StyledAllEpisodes>
@@ -32,8 +33,8 @@ const StyledAllEpisodes = styled(motion.div)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 90%;
-  width: 90%;
+  height: 80vh;
+  width: 80vw;
   z-index: 999999;
   background: #000000d1;
   border-radius: 1rem;

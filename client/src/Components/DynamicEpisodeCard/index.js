@@ -18,14 +18,7 @@ const DynamicEpisodeCard = (props) => {
   });
 
   const episodeCardClickHandler = () => {
-    console.log('episodecardclickhandler');
-
-    props.setCurrentEpisode(
-      episodeData.filter(
-        (episode) => episode.episodeNumber === props.fileName
-      )[0]
-    );
-
+    props.rollHandler(props.fileName - 1);
     props.setAreAllEpisodesVisible(!props.areAllEpisodesVisible);
   };
 
@@ -56,11 +49,6 @@ const StyledBackgroundImage = styled(motion.div)`
     height: 400px;
     width: auto;
   }
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; */
 `;
 
 export default DynamicEpisodeCard;

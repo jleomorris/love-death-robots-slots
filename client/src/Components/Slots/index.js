@@ -14,6 +14,8 @@ import {
 // Episode data
 import { episodeData } from '../../episodeData';
 
+import AllEpisodes from '../../Pages/AllEpisodes';
+
 // Icon components
 import CyclopticPyramid from '../Icons/CyclopticPyramid';
 import Barn from '../Icons/Barn';
@@ -61,6 +63,7 @@ import Star from '../Icons/Star';
 
 const Slots = (props) => {
   const history = useHistory();
+
   const icons = [
     // <QuestionMark />,
     <X2 height={200} width={200} />,
@@ -111,7 +114,7 @@ const Slots = (props) => {
     useState();
   const slotRefs = [createRef(), createRef(), createRef()];
 
-  const rollHandler = () => {
+  const rollHandler = (forcedEpisodeNumber) => {
     props.setEpisodesGenerated((prev) => prev + 1);
     props.setIsRolling(true);
     props.setCurrentEpisode();
@@ -127,6 +130,11 @@ const Slots = (props) => {
     while (randomEpisodeIndex === previousRandomEpisodeIndex) {
       calculateRandomEpisodeIndex();
     }
+
+    // debugger;
+
+    if (typeof forcedEpisodeNumber !== 'object')
+      randomEpisodeIndex = forcedEpisodeNumber;
 
     // Loop through slot refs and set each one to spin
     slotRefs.forEach((slot, index) => {
@@ -194,12 +202,15 @@ const Slots = (props) => {
   };
 
   return (
-    <div
-      //   className={`slots ${
-      //     props.isFirstRollCompleted ? 'slots--homepage' : 'slots--homepage'
-      //   }`}
-      className='slots'
-    >
+    <div className='slots'>
+      {props.areAllEpisodesVisible === true && (
+        <AllEpisodes
+          areAllEpisodesVisible={props.areAllEpisodesVisible}
+          setAreAllEpisodesVisible={props.setAreAllEpisodesVisible}
+          setCurrentEpisode={props.setCurrentEpisode}
+          rollHandler={rollHandler}
+        />
+      )}
       <StyledSlotsMain
         className='styled-slots-main'
         variants={props.episodesGenerated === 1 ? fadeOut(0) : fadeOut(1.5)}
