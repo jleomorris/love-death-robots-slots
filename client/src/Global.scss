@@ -42,4 +42,14 @@ body {
       color: rgba(255, 255, 255, 0.733) !important;
     }
   }
+
+  &--selected {
+    border: 8px solid #fb420a !important;
+    color: #fb420a !important;
+
+    &:hover {
+      border: 8px solid #fb420a !important;
+      color: #fb420a !important;
+    }
+  }
 }
