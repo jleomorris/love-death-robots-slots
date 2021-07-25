@@ -1,4 +1,4 @@
-import React, { useState, createRef } from 'react';
+import React, { useState, createRef, useEffect } from 'react';
 import './index.scss';
 import { useHistory, Link, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
@@ -63,6 +63,11 @@ import Star from '../Icons/Star';
 
 const Slots = (props) => {
   const history = useHistory();
+  const [allEpisodes, setAllEpisodes] = useState();
+
+  useEffect(() => {
+    setAllEpisodes(episodeData);
+  }, []);
 
   const icons = [
     // <QuestionMark />,
@@ -122,7 +127,7 @@ const Slots = (props) => {
 
     // Calculate random index until it's different from the previous pick
     const calculateRandomEpisodeIndex = () => {
-      randomEpisodeIndex = Math.floor(Math.random() * episodeData.length);
+      randomEpisodeIndex = Math.floor(Math.random() * allEpisodes.length);
     };
 
     calculateRandomEpisodeIndex();
@@ -131,8 +136,7 @@ const Slots = (props) => {
       calculateRandomEpisodeIndex();
     }
 
-    // debugger;
-
+    // Make index to change to the forced episode number if one is present
     if (typeof forcedEpisodeNumber !== 'object')
       randomEpisodeIndex = forcedEpisodeNumber;
 
@@ -153,7 +157,7 @@ const Slots = (props) => {
     let options = ref.children;
 
     // Icon of random episode to change to based on data
-    let iconToChangeTo = episodeData[randomEpisodeIndex].icons[index];
+    let iconToChangeTo = allEpisodes[randomEpisodeIndex].icons[index];
     console.log('Slots.iconToChangeTo', iconToChangeTo);
     let iconToChangeToIndex;
 
@@ -178,8 +182,8 @@ const Slots = (props) => {
       props.setIsFirstRollCompleted(true);
       //   props.setIsRolling(false);
       props.setCurrentEpisode(
-        episodeData.filter(
-          (episode) => episode.title === episodeData[randomEpisodeIndex].title
+        allEpisodes.filter(
+          (episode) => episode.title === allEpisodes[randomEpisodeIndex].title
         )[0]
       );
     };
@@ -194,7 +198,7 @@ const Slots = (props) => {
       }, 2000);
     }
 
-    const episodeToGoTo = episodeData[randomEpisodeIndex].title;
+    const episodeToGoTo = allEpisodes[randomEpisodeIndex].title;
 
     setTimeout(() => {
       props.setIsRolling(false);

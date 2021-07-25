@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.scss';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -7,6 +7,34 @@ import DynamicEpisodeCard from '../../Components/DynamicEpisodeCard';
 import X2 from '../../Components/Icons/X2';
 
 const AllEpisodes = (props) => {
+  const [allEpisodes, setAllEpisodes] = useState();
+  const [sortedBy, setSortedBy] = useState('episodeNumber');
+
+  useEffect(() => {
+    // Copy made so original episode data doesn't get mutated on sorting (will cause bugs)
+    const episodesCopy = episodeData.map((episode) => episode);
+    setAllEpisodes(episodesCopy);
+  }, []);
+
+  const sortHandler = (type) => {
+    let sorted;
+
+    if (type === 'rating')
+      // Desc
+      sorted = allEpisodes.sort((a, b) => (b[type] > a[type] ? 1 : -1));
+    if (type === 'episodeNumber')
+      // Asc
+      sorted = allEpisodes.sort((a, b) => (a[type] > b[type] ? 1 : -1));
+    if (type === 'duration')
+      sorted = allEpisodes.sort((a, b) =>
+        // Desc
+        b.secondaryDetails[type] > a.secondaryDetails[type] ? 1 : -1
+      );
+
+    setAllEpisodes(sorted);
+    setSortedBy(type);
+  };
+
   return (
     <StyledAllEpisodes className='all-episodes'>
       <button
@@ -17,15 +45,46 @@ const AllEpisodes = (props) => {
       >
         <X2 />
       </button>
-      {episodeData.map((episode) => (
-        <DynamicEpisodeCard
-          fileName={episode.episodeNumber}
-          setCurrentEpisode={props.setCurrentEpisode}
-          areAllEpisodesVisible={props.areAllEpisodesVisible}
-          setAreAllEpisodesVisible={props.setAreAllEpisodesVisible}
-          rollHandler={props.rollHandler}
-        />
-      ))}
+      <StyledSort className='sort'>
+        <p className='sort__main'>Sort by:</p>
+        <div
+          className={`btn btn--trans-white ${
+            sortedBy === 'episodeNumber' ? 'btn--selected' : ''
+          }`}
+          onClick={() => sortHandler('episodeNumber')}
+        >
+          Number
+        </div>
+        <div
+          className={`btn btn--trans-white ${
+            sortedBy === 'rating' ? 'btn--selected' : ''
+          }`}
+          onClick={() => sortHandler('rating')}
+        >
+          Rating
+        </div>
+        <div
+          className={`btn btn--trans-white ${
+            sortedBy === 'duration' ? 'btn--selected' : ''
+          }`}
+          onClick={() => sortHandler('duration')}
+        >
+          Duration
+        </div>
+      </StyledSort>
+      {allEpisodes &&
+        allEpisodes.map((episode) => (
+          <>
+            <DynamicEpisodeCard
+              episode={episode}
+              setCurrentEpisode={props.setCurrentEpisode}
+              areAllEpisodesVisible={props.areAllEpisodesVisible}
+              setAreAllEpisodesVisible={props.setAreAllEpisodesVisible}
+              rollHandler={props.rollHandler}
+              sortedBy={sortedBy}
+            />
+          </>
+        ))}
     </StyledAllEpisodes>
   );
 };
@@ -48,4 +107,23 @@ const StyledAllEpisodes = styled(motion.div)`
   flex-wrap: wrap;
   overflow: auto;
 `;
+
+const StyledSort = styled(motion.div)`
+  padding-left: 2rem;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .sort__main {
+    color: white;
+    font-size: 40px;
+  }
+
+  .btn {
+    margin: 0 1rem;
+  }
+`;
+
 export default AllEpisodes;

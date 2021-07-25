@@ -2,14 +2,14 @@ export const episodeData = [
   {
     title: "Sonnie's Edge",
     season: '1',
-    episodeNumber: '1',
+    episodeNumber: 1,
     secondaryDetails: {
       directedBy: 'Dave Wilson',
       adaptedScriptBy: 'Philip Gelatt',
       basedOnTheStoryBy: 'Peter F. Hamilton',
       animationStudio: 'Blur Studio',
       releaseDate: '15/03/19',
-      duration: '17 mins',
+      duration: 17,
     },
     description:
       "In the underground world of 'beastie' fights, Sonnie is unbeatable -- as long as she keeps her edge.",
@@ -20,14 +20,14 @@ export const episodeData = [
   {
     title: 'Three Robots',
     season: '1',
-    episodeNumber: '2',
+    episodeNumber: 2,
     secondaryDetails: {
       directedBy: 'Victor Maldonado & Alfredo Torres',
       adaptedScriptBy: 'Philip Gelatt',
       basedOnTheStoryBy: 'John Scalzi',
       animationStudio: 'Blow Studio',
       releaseDate: '15/03/19',
-      duration: '12 mins',
+      duration: 12,
     },
     description:
       'Long after the fall of humanity, three robots embark on a sightseeing tour of a post-apocalyptic city.',
@@ -38,14 +38,14 @@ export const episodeData = [
   {
     title: 'The Witness',
     season: '1',
-    episodeNumber: '3',
+    episodeNumber: 3,
     secondaryDetails: {
       directedBy: 'Alberto Mielgo',
       adaptedScriptBy: 'ALbert Mielgo',
       basedOnTheStoryBy: 'N/A',
       animationStudio: 'Pinkman TV',
       releaseDate: '15/03/19',
-      duration: '12 mins',
+      duration: 12,
     },
     description:
       'After seeing a brutal murder, a woman flees from the killer through the streets of a surreal city.',
@@ -56,14 +56,14 @@ export const episodeData = [
   {
     title: 'Suits',
     season: '1',
-    episodeNumber: '4',
+    episodeNumber: 4,
     secondaryDetails: {
       directedBy: 'Franck Balson',
       adaptedScriptBy: 'Philip Gelatt',
       basedOnTheStoryBy: 'Steven Lewis',
       animationStudio: 'Blur Studio',
       releaseDate: '15/03/19',
-      duration: '17 mins',
+      duration: 17,
     },
     description:
       'A community of farmers use their homemade mechs to defend their families from an alien invasion.',
@@ -74,14 +74,14 @@ export const episodeData = [
   {
     title: 'Sucker of Souls',
     season: '1',
-    episodeNumber: '5',
+    episodeNumber: 5,
     secondaryDetails: {
       directedBy: 'Owen Sullivan',
       adaptedScriptBy: 'Philip Gelatt',
       basedOnTheStoryBy: 'Kirsten Cross',
       animationStudio: 'Studio La Cachette',
       releaseDate: '15/03/19',
-      duration: '13 mins',
+      duration: 13,
     },
     description:
       'Unleashed by an archaeological dig, a bloodthirsty demon battles a team of mercenaries armed with... cats?',
@@ -92,14 +92,14 @@ export const episodeData = [
   {
     title: 'When the Yoghurt Took Over',
     season: '1',
-    episodeNumber: '6',
+    episodeNumber: 6,
     secondaryDetails: {
       directedBy: 'Victor Maldonado & Alfredo Torres',
       adaptedScriptBy: 'Janis Robertson',
       basedOnTheStoryBy: 'John Scalzi',
       animationStudio: 'Blow Studio',
       releaseDate: '15/03/19',
-      duration: '6 mins',
+      duration: 6,
     },
     description:
       'After scientists accidentally breed super-intelligent yogurt, it soon hungers for world domination.',
@@ -110,14 +110,14 @@ export const episodeData = [
   {
     title: 'Beyond the Aquila Rift',
     season: '1',
-    episodeNumber: '7',
+    episodeNumber: 7,
     secondaryDetails: {
       directedBy: 'Léon Bérelle, Dominique Boidin, Rémi Kozyra, Maxime Luère	',
       adaptedScriptBy: 'Philip Gelatt',
       basedOnTheStoryBy: 'Alastair Reynolds',
       animationStudio: 'Unit Image	',
       releaseDate: '15/03/19',
-      duration: '17 mins',
+      duration: 17,
     },
     description:
       "Awakening after traveling light years off course, a ship's crew struggles to discover just how far they've come.",
@@ -128,14 +128,14 @@ export const episodeData = [
   {
     title: 'Good Hunting',
     season: '1',
-    episodeNumber: '8',
+    episodeNumber: 8,
     secondaryDetails: {
       directedBy: 'Oliver Thomas',
       adaptedScriptBy: 'Philip Gelatt',
       basedOnTheStoryBy: 'Ken Liu',
       animationStudio: 'Red Dog Culture House',
       releaseDate: '15/03/19',
-      duration: '17 mins',
+      duration: 17,
     },
     description:
       'The son of a spirit hunter forges a bond with a shape-shifting huli jing.',
@@ -146,14 +146,14 @@ export const episodeData = [
   {
     title: 'The Dump',
     season: '1',
-    episodeNumber: '9',
+    episodeNumber: 9,
     secondaryDetails: {
       directedBy: 'Javier Recio Gracia',
       adaptedScriptBy: 'Philip Gelatt',
       basedOnTheStoryBy: 'Joe Lansdale',
       animationStudio: 'Able & Baker',
       releaseDate: '15/03/19',
-      duration: '10 mins',
+      duration: 10,
     },
     description:
       "Ugly Dave calls the garbage dump home, and he's not about to let some city slicker take it away from him.",
@@ -164,14 +164,14 @@ export const episodeData = [
   {
     title: 'Shape-Shifters',
     season: '1',
-    episodeNumber: '10',
+    episodeNumber: 10,
     secondaryDetails: {
       directedBy: 'Gabriele Pennacchioli',
       adaptedScriptBy: 'Philip Gelatt',
       basedOnTheStoryBy: 'Marko Kloos',
       animationStudio: 'Blur Studio',
       releaseDate: '15/03/19',
-      duration: '16 mins',
+      duration: 16,
     },
     description:
       'Deep in Afghanistan, two Marines with supernatural powers face a threat from one of their own kind.',
@@ -182,14 +182,14 @@ export const episodeData = [
   {
     title: 'Helping Hand',
     season: '1',
-    episodeNumber: '11',
+    episodeNumber: 11,
     secondaryDetails: {
       directedBy: 'Jon Yeo',
       adaptedScriptBy: 'Philip Gelatt',
       basedOnTheStoryBy: 'Claudine Griggs',
       animationStudio: 'Axis Studios',
       releaseDate: '15/03/19',
-      duration: '10 mins',
+      duration: 10,
     },
     description:
       'Stranded in orbit, an astronaut must choose between life and limb before her oxygen runs out.',
@@ -200,14 +200,14 @@ export const episodeData = [
   {
     title: 'Fish Night',
     season: '1',
-    episodeNumber: '12',
+    episodeNumber: 12,
     secondaryDetails: {
       directedBy: 'Damian Nenow',
       adaptedScriptBy: 'Philip Gelatt',
       basedOnTheStoryBy: 'Joe Lansdale',
       animationStudio: 'Platige Image Studio',
       releaseDate: '15/03/19',
-      duration: '10 mins',
+      duration: 10,
     },
     description:
       'After their car breaks down in the desert, two salesmen take a dreamlike voyage to the dawn of time.',
@@ -218,14 +218,14 @@ export const episodeData = [
   {
     title: 'Lucky13',
     season: '1',
-    episodeNumber: '13',
+    episodeNumber: 13,
     secondaryDetails: {
       directedBy: 'Jerome Chen',
       adaptedScriptBy: 'Philip Gelatt',
       basedOnTheStoryBy: 'Mark Kloos',
       animationStudio: 'Sony Pictures Imageworks',
       releaseDate: '15/03/19',
-      duration: '13 mins',
+      duration: 13,
     },
     description:
       "After the drop-ship Lucky 13 lost two crews, no pilot would fly her... but rookies don't get a choice.",
@@ -236,14 +236,14 @@ export const episodeData = [
   {
     title: 'Zima Blue',
     season: '1',
-    episodeNumber: '14',
+    episodeNumber: 14,
     secondaryDetails: {
       directedBy: 'Robert Valley',
       adaptedScriptBy: 'Philip Gelatt',
       basedOnTheStoryBy: 'Alastair Reynolds',
       animationStudio: 'Passion Animation Studios',
       releaseDate: '15/03/19',
-      duration: '10 mins',
+      duration: 10,
     },
     description:
       'The renowned artist Zima recounts his mysterious past and rise to fame before unveiling his final work.',
@@ -254,14 +254,14 @@ export const episodeData = [
   {
     title: 'Blind Spot',
     season: '1',
-    episodeNumber: '15',
+    episodeNumber: 15,
     secondaryDetails: {
       directedBy: 'Vitaliy Shushko',
       adaptedScriptBy: 'Vitaliy Shushko',
       basedOnTheStoryBy: 'N/A',
       animationStudio: 'Independent Studio / Elena Volk',
       releaseDate: '15/03/19',
-      duration: '8 mins',
+      duration: 8,
     },
     description:
       'A gang of cyborg thieves stage a high-speed heist of a heavily armored convoy.',
@@ -272,14 +272,14 @@ export const episodeData = [
   {
     title: 'Ice Age',
     season: '1',
-    episodeNumber: '16',
+    episodeNumber: 16,
     secondaryDetails: {
       directedBy: 'Tim Miller',
       adaptedScriptBy: 'Philip Gelatt',
       basedOnTheStoryBy: 'Michael Swanswick',
       animationStudio: 'Digic Pictures / Blur Studio / Atomic Fiction',
       releaseDate: '15/03/19',
-      duration: '10 mins',
+      duration: 10,
     },
     description:
       'A young couple moves into an apartment and finds a lost civilization inside their antique freezer.',
@@ -290,14 +290,14 @@ export const episodeData = [
   {
     title: 'Alternate Histories',
     season: '1',
-    episodeNumber: '17',
+    episodeNumber: 17,
     secondaryDetails: {
       directedBy: 'Victor Maldonado & Alfredo Torres',
       adaptedScriptBy: 'Philip Gelatt',
       basedOnTheStoryBy: 'John Scalzi',
       animationStudio: 'Sun Creature Studio',
       releaseDate: '15/03/19',
-      duration: '7 mins',
+      duration: 7,
     },
     description:
       'Want to see Hitler die in a variety of comically fantastic ways? Now you can. Welcome to Multiversity!',
@@ -308,14 +308,14 @@ export const episodeData = [
   {
     title: 'The Secret War',
     season: '1',
-    episodeNumber: '18',
+    episodeNumber: 18,
     secondaryDetails: {
       directedBy: 'István Zorkóczy',
       adaptedScriptBy: 'Philip Gelatt',
       basedOnTheStoryBy: 'David W. Amendola',
       animationStudio: 'Digic Pictures',
       releaseDate: '15/03/19',
-      duration: '10 mins',
+      duration: 10,
     },
     description:
       'Elite units of the Red Army fight an unholy evil deep in the ancient forests of Siberia.',

@@ -11,14 +11,15 @@ const DynamicEpisodeCard = (props) => {
     let sourceImport;
 
     sourceImport = await import(
-      `../../Images/Episode/Cards/${props.fileName}.jpg`
+      `../../Images/Episode/Cards/${props.episode.episodeNumber}.jpg`
     );
 
     setSource(sourceImport.default);
   });
 
   const episodeCardClickHandler = () => {
-    props.rollHandler(props.fileName - 1);
+    console.log('props.episode.episodeNumber', props.episode.episodeNumber);
+    props.rollHandler(props.episode.episodeNumber - 1);
     props.setAreAllEpisodesVisible(!props.areAllEpisodesVisible);
   };
 
@@ -27,7 +28,24 @@ const DynamicEpisodeCard = (props) => {
       <StyledBackgroundImage
         className={`styled-background-image`}
         onClick={episodeCardClickHandler}
+        whileHover={{ scale: 1.15 }}
       >
+        {props.sortedBy && (
+          <div className='details'>
+            {props.sortedBy === 'episodeNumber' && (
+              <p className='rating'>#{props.episode.episodeNumber}</p>
+            )}
+            {/* <p className='sorted-by-tag'>Sorted by {props.sortedBy}</p> */}
+            {props.sortedBy === 'rating' && (
+              <p className='rating'>{props.episode.rating}</p>
+            )}
+            {props.sortedBy === 'duration' && (
+              <p className='rating'>
+                {props.episode.secondaryDetails.duration} mins
+              </p>
+            )}
+          </div>
+        )}
         <img className='episode-card' src={source} alt='episode card' />
       </StyledBackgroundImage>
     )
@@ -44,6 +62,30 @@ const StyledBackgroundImage = styled(motion.div)`
   width: fit-content;
   margin: 2rem;
   cursor: pointer;
+  position: relative;
+
+  .details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .sorted-by-tag {
+      color: white;
+      font-size: 60px;
+      margin: 10px 0;
+    }
+
+    .rating {
+      font-size: 60px;
+      margin: 10px 0;
+    }
+  }
 
   img {
     height: 400px;
