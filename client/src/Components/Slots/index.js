@@ -310,12 +310,10 @@ const Slots = (props) => {
       </StyledSlotsMain>
       <div className='slots-cta'>
         <div
-          className={`roll-btn ${
-            props.episodesGenerated > 0 ? 'roll-btn--detailpage' : ''
-          } ${
-            props.isRolling === false
-              ? ' roll-btn--to-roll'
-              : ' roll-btn--rolling'
+          className={`btn ${
+            props.episodesGenerated === 0 ? 'btn--homepage' : ''
+          } ${props.episodesGenerated > 0 ? 'btn--trans-white' : ''} ${
+            props.isRolling === false ? 'btn--blink' : 'btn--hide'
           }`}
           onClick={rollHandler}
           disabled={props.isRolling}
