@@ -6,6 +6,7 @@ import { Player } from 'video-react';
 // Components
 import DynamicBackground from '../DynamicBackground';
 import DynamicEpisodeIcon from '../DynamicEpisodeIcon';
+import AllEpisodes from '../../Pages/AllEpisodes';
 // Animation
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -28,6 +29,7 @@ const Header = (props) => {
   const [isFirstRollCompleted, setIsFirstRollCompleted] = useState(false);
   const [isRolling, setIsRolling] = useState(false);
   const [episodesGenerated, setEpisodesGenerated] = useState(0);
+  const [areAllEpisodesVisible, setAreAllEpisodesVisible] = useState(false);
 
   useEffect(() => {
     if (isEpisodeGenerated === false) {
@@ -45,6 +47,13 @@ const Header = (props) => {
       animate='show'
       exit='exit'
     >
+      {areAllEpisodesVisible === true && (
+        <AllEpisodes
+          areAllEpisodesVisible={areAllEpisodesVisible}
+          setAreAllEpisodesVisible={setAreAllEpisodesVisible}
+          setCurrentEpisode={props.setCurrentEpisode}
+        />
+      )}
       <StyledSeriesLogo
         variants={slideDown()}
         animate={isFirstRollCompleted ? 'show' : ''}
@@ -167,6 +176,11 @@ const Header = (props) => {
               }
             )}
           </div>
+          <button
+            onClick={() => setAreAllEpisodesVisible(!areAllEpisodesVisible)}
+          >
+            All episodes
+          </button>
         </StyledDetails>
       )}
     </motion.div>
