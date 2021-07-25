@@ -23,6 +23,9 @@ import {
   fadeInOut,
 } from '../../animations';
 import { episodeData } from '../../episodeData';
+import Star from '../Icons/Star';
+import { stripBasename } from 'history/PathUtils';
+import StarRatings from 'react-star-ratings';
 
 const Header = (props) => {
   const [isEpisodeGenerated, setIsEpisodeGenerated] = useState();
@@ -38,6 +41,20 @@ const Header = (props) => {
       }, 500);
     }
   }, [isEpisodeGenerated]);
+
+  const calculateStarRating = () => {
+    const stars = [];
+
+    const limit = Math.floor(props.currentEpisode.rating);
+
+    for (let i = 0; i < limit; i += 1) {
+      stars.push(<Star />);
+    }
+
+    // debugger;
+
+    return stars;
+  };
 
   return (
     <motion.div
@@ -147,13 +164,24 @@ const Header = (props) => {
           <h2 className='details__season'>
             Season {props.currentEpisode?.season}
           </h2>
-          {props?.currentEpisode?.icons && (
-            <div className='episode-icons'>
-              {props.currentEpisode.icons.map((icon) => (
-                <DynamicEpisodeIcon fileName={icon} />
-              ))}
-            </div>
-          )}
+          <div className='star-ratings'>
+            {/* {calculateStarRating()}
+            <p className="star-ratings__rating">({props.currentEpisode.rating})</p> */}
+            <StarRatings
+              rating={props.currentEpisode.rating / 2}
+              starRatedColor='#ed3501'
+              numberOfStars={5}
+              name='rating'
+            />
+            <p className='star-ratings__rating'>
+              ({Math.round((props.currentEpisode.rating / 2) * 10) / 10})
+            </p>
+          </div>
+          <div className='episode-icons'>
+            {props.currentEpisode.icons.map((icon) => (
+              <DynamicEpisodeIcon fileName={icon} />
+            ))}
+          </div>
           <h2 className='details__description'>
             {props.currentEpisode?.description}
           </h2>

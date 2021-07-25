@@ -96,6 +96,21 @@
     align-items: flex-end;
     // box-shadow: 30px 20px 0px #ff0000a6;
 
+    .star-ratings {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+
+      svg {
+        opacity: 0.8;
+      }
+
+      &__rating {
+        font-size: 2rem;
+        margin: 0 0 0 10px;
+      }
+    }
+
     .episode-icons {
       width: 100%;
       margin-top: 3rem;
@@ -136,7 +151,7 @@
     }
 
     &__description {
-      font-size: 40px;
+      font-size: 30px;
       margin-top: 3rem;
     }
 
