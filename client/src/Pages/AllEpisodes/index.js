@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import { episodeData } from '../../episodeData';
 import DynamicEpisodeCard from '../../Components/DynamicEpisodeCard';
 import X2 from '../../Components/Icons/X2';
+// Animations
+import { allEpisodesSlideUp, fadeIn } from '../../animations';
 
 const AllEpisodes = (props) => {
   const [allEpisodes, setAllEpisodes] = useState();
@@ -36,7 +38,12 @@ const AllEpisodes = (props) => {
   };
 
   return (
-    <StyledAllEpisodes className='all-episodes'>
+    <StyledAllEpisodes
+      className='all-episodes'
+      variants={allEpisodesSlideUp(0)}
+      initial='hidden'
+      animate='show'
+    >
       <button
         className='exit-button'
         onClick={() =>

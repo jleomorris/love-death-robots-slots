@@ -61,6 +61,16 @@ export const slideUp = (delay) => ({
   },
 });
 
+export const allEpisodesSlideUp = (delay) => ({
+  hidden: { y: '50%', x: '-50%', opacity: 0 },
+  show: {
+    y: '-50%',
+    x: '-50%',
+    opacity: 1,
+    transition: { duration: 0.75, ease: 'easeOut', delay: delay },
+  },
+});
+
 export const slideDown = (delay) => ({
   hidden: { y: 0, opacity: 1 },
   show: {
