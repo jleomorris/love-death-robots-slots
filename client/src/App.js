@@ -8,6 +8,8 @@ import './Global.scss';
 import { Switch, Route, useLocation, BrowserRouter } from 'react-router-dom';
 // Animations
 import { AnimatePresence } from 'framer-motion';
+// Components
+import Footer from './Components/Footer';
 
 const App = () => {
   const location = useLocation();
@@ -26,10 +28,6 @@ const App = () => {
       <AnimatePresence>
         <Switch location={location} key={location.pathname}>
           <Route path={`/`} exact>
-            {/* <HomePage
-              currentEpisode={currentEpisode}
-              setCurrentEpisode={setCurrentEpisode}
-            /> */}
             <Header
               currentEpisode={currentEpisode}
               setCurrentEpisode={setCurrentEpisode}
@@ -42,6 +40,7 @@ const App = () => {
             />
           </Route>
         </Switch>
+        <Footer />
       </AnimatePresence>
     </div>
   );

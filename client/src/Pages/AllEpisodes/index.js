@@ -102,7 +102,7 @@ const StyledAllEpisodes = styled(motion.div)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 90vh;
+  height: 93vh;
   width: 90vw;
   padding: 1rem;
   z-index: 999999;
