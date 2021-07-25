@@ -193,6 +193,7 @@ const Header = (props) => {
                     <p className='secondary-detail__title'>{detail}</p>
                     <p className='secondary-detail__content'>
                       {props.currentEpisode?.secondaryDetails[detail]}
+                      {detail === 'duration' ? ' mins' : ''}
                     </p>
                   </div>
                 );
