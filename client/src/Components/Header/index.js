@@ -218,25 +218,25 @@ const StyledHeader = styled(motion.div)`
   }
 `;
 const StyledTitleSlotsContainer = styled(motion.div)`
-  @media ${device.mobileS} {
+  /* @media ${device.mobileS} {
     border: 1px solid red;
     width: 100% !important;
-  }
-  @media ${device.laptop} {
+  } */
+  /* @media ${device.laptop} {
     border: 1px solid blue;
     width: 70% !important;
-  }
+  } */
 `;
 const StyledEpisodeTitleContainer = styled(motion.div)``;
 const StyledDetails = styled(motion.div)`
-  @media ${device.mobileS} {
+  /* @media ${device.mobileS} {
     border: 1px solid red;
     width: 100% !important;
   }
   @media ${device.laptop} {
     border: 1px solid blue;
     width: 25% !important;
-  }
+  } */
 `;
 const StyledAppTitleContainer = styled(motion.div)``;
 const StyledSeriesLogo = styled(motion.div)`
