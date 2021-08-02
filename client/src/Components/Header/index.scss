@@ -1,5 +1,5 @@
 .header {
-  height: 100vh;
+  min-height: 100vh;
   //   background: #0c0c0c;
   display: flex;
   position: relative;
@@ -85,7 +85,6 @@
   }
 
   .details {
-    width: 25%;
     color: white;
     position: relative;
     padding: 2rem;

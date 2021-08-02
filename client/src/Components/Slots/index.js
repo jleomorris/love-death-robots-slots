@@ -206,7 +206,11 @@ const Slots = (props) => {
   };
 
   return (
-    <div className='slots'>
+    <div
+      className={`slots ${
+        props.isFirstRollCompleted ? 'slots--details' : 'slots--homepage'
+      }`}
+    >
       {props.areAllEpisodesVisible === true && (
         <AllEpisodes
           areAllEpisodesVisible={props.areAllEpisodesVisible}

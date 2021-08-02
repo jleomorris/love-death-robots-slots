@@ -26,6 +26,8 @@ import { episodeData } from '../../episodeData';
 import Star from '../Icons/Star';
 import { stripBasename } from 'history/PathUtils';
 import StarRatings from 'react-star-ratings';
+// Responsive styling
+import { device } from '../../util/device';
 
 const Header = (props) => {
   const [isEpisodeGenerated, setIsEpisodeGenerated] = useState();
@@ -57,7 +59,7 @@ const Header = (props) => {
   };
 
   return (
-    <motion.div
+    <StyledHeader
       className='header section'
       variants={pageAnimation}
       initial='hidden'
@@ -122,7 +124,7 @@ const Header = (props) => {
             : 'title-slots-container--homepage'
         }`}
         variants={halfWidth()}
-        initial='hidden'
+        // initial='hidden'
         animate={isFirstRollCompleted ? 'show' : 'slideUp'}
       >
         <StyledAppTitleContainer
@@ -202,14 +204,40 @@ const Header = (props) => {
           </div>
         </StyledDetails>
       )}
-    </motion.div>
+    </StyledHeader>
   );
 };
 
 // Styled components
-const StyledTitleSlotsContainer = styled(motion.div)``;
+const StyledHeader = styled(motion.div)`
+  @media ${device.mobileS} {
+    flex-direction: column;
+  }
+  @media ${device.laptop} {
+    flex-direction: row;
+  }
+`;
+const StyledTitleSlotsContainer = styled(motion.div)`
+  @media ${device.mobileS} {
+    border: 1px solid red;
+    width: 100% !important;
+  }
+  @media ${device.laptop} {
+    border: 1px solid blue;
+    width: 70% !important;
+  }
+`;
 const StyledEpisodeTitleContainer = styled(motion.div)``;
-const StyledDetails = styled(motion.div)``;
+const StyledDetails = styled(motion.div)`
+  @media ${device.mobileS} {
+    border: 1px solid red;
+    width: 100% !important;
+  }
+  @media ${device.laptop} {
+    border: 1px solid blue;
+    width: 25% !important;
+  }
+`;
 const StyledAppTitleContainer = styled(motion.div)``;
 const StyledSeriesLogo = styled(motion.div)`
   width: 400px;
