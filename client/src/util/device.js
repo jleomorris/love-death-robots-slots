@@ -6,8 +6,22 @@ const size = {
   mobileL: '425px',
   tablet: '768px',
   laptop: '1024px',
+  laptopS: '1200px',
   laptopL: '1440px',
-  desktop: '2560px',
+  desktop1600: '1600px',
+  desktop1920: '1920px',
+};
+
+export const sizeNumber = {
+  mobileS: 320,
+  mobileM: 375,
+  mobileL: 425,
+  tablet: 768,
+  laptop: 1024,
+  laptopS: 1200,
+  laptopL: 1440,
+  desktop1600: 1600,
+  desktop1920: 1920,
 };
 
 export const device = {
