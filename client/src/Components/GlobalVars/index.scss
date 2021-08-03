@@ -1,0 +1,27 @@
+// Vars
+
+$breakpoints: (
+  0: 0px,
+  mobileS: 320px,
+  mobileM: 375px,
+  mobileL: 425px,
+  tabletS: 768px,
+  tabletM: 1024px,
+  desktopXS: 1200px,
+  desktopS: 1440px,
+  desktopM: 1600px,
+  desktopL: 1920px,
+);
+
+// Mixins
+
+@mixin mq($mq-breakpoint, $mq-breakpoints: $breakpoints) {
+  // If $mq-breakpoint is a key that exists in $mq-breakpoints, get and use the value
+  @if map-has-key($mq-breakpoints, $mq-breakpoint) {
+    $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint);
+  }
+
+  @media screen and (min-width: #{$mq-breakpoint}) {
+    @content;
+  }
+}
