@@ -28,6 +28,7 @@ import { stripBasename } from 'history/PathUtils';
 import StarRatings from 'react-star-ratings';
 // Responsive styling
 import { device } from '../../util/device';
+import useWindowSize from '../../hooks/useWindowSize';
 
 const Header = (props) => {
   const [isEpisodeGenerated, setIsEpisodeGenerated] = useState();
@@ -35,6 +36,7 @@ const Header = (props) => {
   const [isRolling, setIsRolling] = useState(false);
   const [episodesGenerated, setEpisodesGenerated] = useState(0);
   const [areAllEpisodesVisible, setAreAllEpisodesVisible] = useState(false);
+  const { screenWidth } = useWindowSize();
 
   useEffect(() => {
     if (isEpisodeGenerated === false) {
@@ -103,20 +105,23 @@ const Header = (props) => {
           />
         </StyledDynamicBackground>
       )}
-      <Slots
-        setCurrentEpisode={props.setCurrentEpisode}
-        currentEpisode={props.currentEpisode}
-        isEpisodeGenerated={isEpisodeGenerated}
-        setIsEpisodeGenerated={setIsEpisodeGenerated}
-        isFirstRollCompleted={isFirstRollCompleted}
-        setIsFirstRollCompleted={setIsFirstRollCompleted}
-        isRolling={isRolling}
-        setIsRolling={setIsRolling}
-        episodesGenerated={episodesGenerated}
-        setEpisodesGenerated={setEpisodesGenerated}
-        areAllEpisodesVisible={areAllEpisodesVisible}
-        setAreAllEpisodesVisible={setAreAllEpisodesVisible}
-      />
+      {screenWidth > 1200 && (
+        <Slots
+          setCurrentEpisode={props.setCurrentEpisode}
+          currentEpisode={props.currentEpisode}
+          isEpisodeGenerated={isEpisodeGenerated}
+          setIsEpisodeGenerated={setIsEpisodeGenerated}
+          isFirstRollCompleted={isFirstRollCompleted}
+          setIsFirstRollCompleted={setIsFirstRollCompleted}
+          isRolling={isRolling}
+          setIsRolling={setIsRolling}
+          episodesGenerated={episodesGenerated}
+          setEpisodesGenerated={setEpisodesGenerated}
+          areAllEpisodesVisible={areAllEpisodesVisible}
+          setAreAllEpisodesVisible={setAreAllEpisodesVisible}
+          isTablet={false}
+        />
+      )}
       <StyledTitleSlotsContainer
         className={`title-slots-container ${
           isFirstRollCompleted
@@ -125,30 +130,69 @@ const Header = (props) => {
         }`}
         variants={halfWidth()}
         // initial='hidden'
-        animate={isFirstRollCompleted ? 'show' : 'slideUp'}
+        animate={
+          isFirstRollCompleted
+            ? screenWidth > 1200
+              ? 'show'
+              : 'showTablet'
+            : 'slideUp'
+        }
       >
         <StyledAppTitleContainer
           variants={fadeIn}
           animate={isFirstRollCompleted ? 'animate' : ''}
         >
-          <h1 className='header__app-title'>
+          <h1
+            className={`header__app-title ${
+              screenWidth < 1200 ? 'header__app-title--tablet' : ''
+            }`}
+          >
             Random Episode{' '}
             <span className='header__app-title header__app-title--highlighted'>
               Generator
             </span>
           </h1>
         </StyledAppTitleContainer>
+        {screenWidth < 1200 && (
+          <Slots
+            setCurrentEpisode={props.setCurrentEpisode}
+            currentEpisode={props.currentEpisode}
+            isEpisodeGenerated={isEpisodeGenerated}
+            setIsEpisodeGenerated={setIsEpisodeGenerated}
+            isFirstRollCompleted={isFirstRollCompleted}
+            setIsFirstRollCompleted={setIsFirstRollCompleted}
+            isRolling={isRolling}
+            setIsRolling={setIsRolling}
+            episodesGenerated={episodesGenerated}
+            setEpisodesGenerated={setEpisodesGenerated}
+            areAllEpisodesVisible={areAllEpisodesVisible}
+            setAreAllEpisodesVisible={setAreAllEpisodesVisible}
+            isTablet
+          />
+        )}
         {props.setCurrentEpisode !== undefined && (
           <StyledEpisodeTitleContainer
-            className='episode-title-container'
+            className={`episode-title-container ${
+              screenWidth < 1200 ? 'episode-title-container--tablet' : '' > 1200
+            }`}
             variants={episodesGenerated === 1 ? slideUp(2) : slideUp(3)}
             initial='hidden'
             animate={isEpisodeGenerated ? 'show' : ''}
             exit='exit'
           >
-            <h1 className='episode-title'>{props.currentEpisode?.title}</h1>
-            <h1 className='episode-title'>{props.currentEpisode?.title}</h1>
-            <h1 className='episode-title'>{props.currentEpisode?.title}</h1>
+            <h1
+              className={`episode-title ${
+                screenWidth < 1200 ? 'episode-title--tablet' : ''
+              }`}
+            >
+              {props.currentEpisode?.title}
+            </h1>
+            {screenWidth > 1200 && (
+              <>
+                <h1 className='episode-title'>{props.currentEpisode?.title}</h1>
+                <h1 className='episode-title'>{props.currentEpisode?.title}</h1>
+              </>
+            )}
           </StyledEpisodeTitleContainer>
         )}
       </StyledTitleSlotsContainer>

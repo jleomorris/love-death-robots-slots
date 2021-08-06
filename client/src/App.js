@@ -34,19 +34,24 @@ const App = () => {
         <Switch location={location} key={location.pathname}>
           <Route path={`/`} exact>
             {/* Desktop */}
-            {screenWidth > sizeNumber.laptopS && (
-              <Header
-                currentEpisode={currentEpisode}
-                setCurrentEpisode={setCurrentEpisode}
-              />
-            )}
+            {/* {screenWidth > sizeNumber.laptopS && ( */}
+            <Header
+              currentEpisode={currentEpisode}
+              setCurrentEpisode={setCurrentEpisode}
+            />
+            {/* )} */}
             {/* Tablet */}
-            {screenWidth > sizeNumber.tablet &&
-              screenWidth < sizeNumber.laptopS && <p>tablet</p>}
+            {/* {screenWidth > sizeNumber.tablet &&
+              screenWidth < sizeNumber.laptopS && (
+                <HeaderTablet
+                  currentEpisode={currentEpisode}
+                  setCurrentEpisode={setCurrentEpisode}
+                />
+              )} */}
             {/* Mobile */}
-            {screenWidth > 0 && screenWidth < sizeNumber.tablet && (
+            {/* {screenWidth > 0 && screenWidth < sizeNumber.tablet && (
               <p>mobile</p>
-            )}
+            )} */}
           </Route>
           {/* <Route path={`/:episode`} exact>
             <Header

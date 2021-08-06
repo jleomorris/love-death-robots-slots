@@ -50,6 +50,10 @@ export const halfWidth = (delay) => ({
     width: '70%',
     transition: { duration: 0.75, ease: 'easeOut', delay: delay },
   },
+  showTablet: {
+    width: '100%',
+    transition: { duration: 0.75, ease: 'easeOut', delay: delay },
+  },
 });
 
 export const slideUp = (delay) => ({

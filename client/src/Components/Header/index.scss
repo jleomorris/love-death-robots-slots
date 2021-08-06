@@ -1,5 +1,6 @@
+@import '../GlobalVars/index.scss';
+
 .header {
-  height: 100vh;
   //   background: #0c0c0c;
   display: flex;
   position: relative;
@@ -9,6 +10,14 @@
   overflow: hidden;
   justify-content: space-between;
   //   filter: blur(2px);
+
+  @include mq(0) {
+    min-height: 100vh;
+  }
+  @include mq(desktopM) {
+    height: 100vh;
+    min-height: unset;
+  }
 
   & > * {
     filter: blur(0);
@@ -61,6 +70,10 @@
       margin-bottom: 7rem;
       width: 100vw;
 
+      &--tablet {
+        margin-bottom: 0 !important;
+      }
+
       .episode-title {
         font-weight: 100;
         font-size: 6rem;
@@ -71,6 +84,10 @@
         text-align: left;
         line-height: 0;
         animation: glitch1 3.5s infinite;
+
+        &--tablet {
+          line-height: unset !important;
+        }
 
         &:nth-child(2) {
           animation: glitch2 2.5s infinite;
@@ -186,6 +203,10 @@
     font-size: 40px;
     letter-spacing: 6px;
     font-weight: 100;
+
+    &--tablet {
+      margin-bottom: 8rem;
+    }
 
     &--highlighted {
       font-size: 70px;

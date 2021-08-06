@@ -206,7 +206,7 @@ const Slots = (props) => {
   };
 
   return (
-    <div className='slots'>
+    <div className={`slots ${props.isTablet ? 'slots--tablet' : ''}`}>
       {props.areAllEpisodesVisible === true && (
         <AllEpisodes
           areAllEpisodesVisible={props.areAllEpisodesVisible}

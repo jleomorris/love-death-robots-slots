@@ -1,4 +1,8 @@
+@import '../GlobalVars/index.scss';
+
 .slots {
+  //   border: 1px solid orange;
+
   margin: 2rem 0;
   position: absolute;
   top: 50%;
@@ -6,6 +10,14 @@
   transform: translate(-50%, -50%);
   z-index: 999;
   overflow: visible;
+  width: 100%;
+
+  &--tablet {
+    transform: none;
+    position: relative;
+    top: unset;
+    left: unset;
+  }
 
   &--details {
     margin: 1rem 0;
@@ -29,14 +41,23 @@
     display: inline-block;
 
     &--homepage {
-      height: 275px;
-      width: 275px;
+      @include mq(tabletS) {
+        height: 175px;
+        width: 175px;
+        margin-bottom: 1.5rem;
+      }
+
+      @include mq(desktopM) {
+        height: 275px;
+        width: 275px;
+        margin-bottom: 0;
+      }
     }
 
-    &--details {
-      height: 120px;
-      width: 125px;
-    }
+    // &--details {
+    //   height: 120px;
+    //   width: 125px;
+    // }
   }
 
   section {
@@ -55,18 +76,23 @@
   }
 
   .section--homepage {
-    width: 260px;
-    height: 260px;
-    width: 260px;
-    height: 260px;
-    line-height: 340px;
+    @include mq(tabletS) {
+      height: 175px;
+      width: 175px;
+      line-height: 255px;
+    }
+    @include mq(desktopM) {
+      width: 260px;
+      height: 260px;
+      line-height: 340px;
+    }
   }
 
-  .section--details {
-    height: 110px;
-    width: 110px;
-    line-height: 90px;
-  }
+  //   .section--details {
+  //     height: 110px;
+  //     width: 110px;
+  //     line-height: 90px;
+  //   }
 
   .container {
     position: absolute;
@@ -87,9 +113,18 @@
 
       .icon-container {
         &--homepage {
-          svg {
-            height: 200px;
-            width: 200px;
+          @include mq(tabletS) {
+            svg {
+              height: 150px;
+              width: 150px;
+            }
+          }
+
+          @include mq(desktopM) {
+            svg {
+              height: 200px;
+              width: 200px;
+            }
           }
         }
 
@@ -121,8 +156,12 @@
 
   .slots-cta {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+
+    .btn {
+      margin-right: 3rem;
+    }
   }
 
   @keyframes blinkingText {
