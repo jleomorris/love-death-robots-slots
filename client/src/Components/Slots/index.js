@@ -312,7 +312,7 @@ const Slots = (props) => {
           </div>
         </div>
       </StyledSlotsMain>
-      <div className='slots-cta'>
+      <div className={`slots-cta ${props.isTablet ? 'slots-cta--tablet' : ''}`}>
         <div
           className={`btn ${
             props.episodesGenerated === 0 ? 'btn--homepage' : ''

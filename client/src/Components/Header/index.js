@@ -69,6 +69,7 @@ const Header = (props) => {
       exit='exit'
     >
       <StyledSeriesLogo
+        className='styled-series-logo'
         variants={slideDown()}
         animate={isFirstRollCompleted ? 'show' : ''}
       >
@@ -284,10 +285,8 @@ const StyledDetails = styled(motion.div)`
 `;
 const StyledAppTitleContainer = styled(motion.div)``;
 const StyledSeriesLogo = styled(motion.div)`
-  width: 400px;
   position: absolute;
   left: 20px;
-  top: 20px;
   opacity: 0.3;
   z-index: 1;
 `;

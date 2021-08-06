@@ -65,7 +65,6 @@ const StyledHomePage = styled(motion.div)``;
 const StyledTitleSlotsContainer = styled(motion.div)``;
 const StyledDetails = styled(motion.div)``;
 const StyledDynamicBackground = styled(motion.div)`
-  border: 2px solid red;
   position: absolute;
   top: 0;
   left: 0;

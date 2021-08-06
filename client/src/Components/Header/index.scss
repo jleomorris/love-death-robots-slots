@@ -23,6 +23,18 @@
     filter: blur(0);
   }
 
+  .styled-series-logo {
+    @include mq(0) {
+      //   width: 250px !important;
+      top: 0px !important;
+    }
+
+    @include mq(tabletS) {
+      //   width: 400px;
+      top: 20px !important;
+    }
+  }
+
   .background-cover {
     height: 100%;
     width: 100%;
@@ -30,7 +42,13 @@
   }
 
   &__series-logo {
-    width: 400px;
+    @include mq(0) {
+      width: 250px;
+    }
+
+    @include mq(tabletS) {
+      width: 400px;
+    }
   }
 
   &__background {
@@ -54,6 +72,7 @@
     align-items: center;
     position: relative;
     padding-left: 2rem;
+    width: 100%;
 
     &--homepage {
       justify-content: center;
@@ -68,15 +87,15 @@
 
     .episode-title-container {
       margin-bottom: 7rem;
-      width: 100vw;
+      //   width: 100vw;
 
       &--tablet {
         margin-bottom: 0 !important;
+        width: calc(100% - 4rem);
       }
 
       .episode-title {
         font-weight: 100;
-        font-size: 6rem;
         color: white;
         letter-spacing: 2rem;
         margin: 0;
@@ -84,6 +103,14 @@
         text-align: left;
         line-height: 0;
         animation: glitch1 3.5s infinite;
+
+        @include mq(0) {
+          font-size: 4rem;
+        }
+
+        @include mq(tabletS) {
+          font-size: 6rem;
+        }
 
         &--tablet {
           line-height: unset !important;
@@ -110,7 +137,14 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-end;
-    // box-shadow: 30px 20px 0px #ff0000a6;
+
+    @include mq(0) {
+      width: calc(100% - 4rem);
+    }
+
+    @include mq(tabletM) {
+      width: 30%;
+    }
 
     .star-ratings {
       display: flex;
@@ -200,17 +234,29 @@
   &__app-title {
     margin-bottom: 30rem;
     color: white;
-    font-size: 40px;
     letter-spacing: 6px;
     font-weight: 100;
+
+    @include mq(0) {
+      font-size: 20px;
+    }
+    @include mq(tabletS) {
+      font-size: 40px;
+    }
 
     &--tablet {
       margin-bottom: 8rem;
     }
 
     &--highlighted {
-      font-size: 70px;
       font-weight: 900;
+
+      @include mq(0) {
+        font-size: 50px;
+      }
+      @include mq(tabletS) {
+        font-size: 70px;
+      }
     }
   }
 
