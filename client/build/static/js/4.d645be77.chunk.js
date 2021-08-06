@@ -1,0 +1,2 @@
+(this.webpackJsonpclient=this.webpackJsonpclient||[]).push([[4],{237:function(t,e,i){"use strict";i.r(e),e.default=i.p+"static/media/Alternate_Histories.e20884e8.jpg"}}]);
+//# sourceMappingURL=4.d645be77.chunk.js.map

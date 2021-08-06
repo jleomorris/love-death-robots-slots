@@ -1,0 +1,2 @@
+(this.webpackJsonpclient=this.webpackJsonpclient||[]).push([[12],{245:function(t,i,n){"use strict";n.r(i),i.default=n.p+"static/media/Good_Hunting.a611b550.jpg"}}]);
+//# sourceMappingURL=12.f75cacdd.chunk.js.map

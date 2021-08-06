@@ -1,0 +1,2 @@
+(this.webpackJsonpclient=this.webpackJsonpclient||[]).push([[19],{252:function(t,c,s){"use strict";s.r(c),c.default=s.p+"static/media/Sucker_Of_Souls.3863a4c2.jpg"}}]);
+//# sourceMappingURL=19.afc36420.chunk.js.map

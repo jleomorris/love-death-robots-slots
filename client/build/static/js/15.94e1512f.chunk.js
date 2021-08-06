@@ -1,2 +1,0 @@
-(this.webpackJsonpclient=this.webpackJsonpclient||[]).push([[15],{247:function(t,c,e){"use strict";e.r(c),c.default=e.p+"static/media/Ice_Age.61c99268.jpg"}}]);
-//# sourceMappingURL=15.94e1512f.chunk.js.map

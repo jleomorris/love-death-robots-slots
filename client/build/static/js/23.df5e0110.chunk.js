@@ -1,2 +1,0 @@
-(this.webpackJsonpclient=this.webpackJsonpclient||[]).push([[23],{255:function(t,s,c){"use strict";c.r(s),s.default=c.p+"static/media/The_Witness.f5c81ac2.jpg"}}]);
-//# sourceMappingURL=23.df5e0110.chunk.js.map

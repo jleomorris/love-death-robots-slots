@@ -1,0 +1,2 @@
+(this.webpackJsonpclient=this.webpackJsonpclient||[]).push([[27],{260:function(t,i,c){"use strict";c.r(i),i.default=c.p+"static/media/Zima_Blue.c131133b.jpg"}}]);
+//# sourceMappingURL=27.ffede326.chunk.js.map

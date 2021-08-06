@@ -1,0 +1,2 @@
+(this.webpackJsonpclient=this.webpackJsonpclient||[]).push([[18],{251:function(e,t,i){"use strict";i.r(t),t.default=i.p+"static/media/Sonnies_Edge.85561e50.jpg"}}]);
+//# sourceMappingURL=18.cb48c0f6.chunk.js.map
