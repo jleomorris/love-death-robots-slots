@@ -1,7 +1,7 @@
 @import '../GlobalVars/index.scss';
 
 .slots {
-  //   border: 1px solid orange;
+  border: 1px solid orange;
 
   margin: 2rem 0;
   position: absolute;
@@ -17,7 +17,6 @@
     position: relative;
     top: unset;
     left: unset;
-    margin-left: -2rem;
   }
 
   &--details {
@@ -37,9 +36,16 @@
     z-index: 999;
   }
 
+  .slots-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .slot {
-    position: relative;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &--homepage {
       @include mq(0) {
@@ -47,6 +53,7 @@
         width: 125px;
         margin-bottom: 1.5rem;
       }
+
       @include mq(tabletS) {
         height: 175px;
         width: 175px;
@@ -84,7 +91,7 @@
   .section--homepage {
     @include mq(0) {
       height: 125px;
-      width: 125px;
+      width: 105px;
       line-height: 145px;
     }
     @include mq(tabletS) {
@@ -182,7 +189,12 @@
     }
 
     .btn {
-      margin-right: 3rem;
+      @include mq(0) {
+        margin-right: 2rem;
+      }
+      @include mq(tabletS) {
+        margin-right: 3rem;
+      }
     }
   }
 

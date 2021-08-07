@@ -30,9 +30,11 @@
 
       @include mq(0) {
         font-size: 20px;
+        width: 100%;
       }
       @include mq(tabletM) {
         font-size: 40px;
+        width: unset;
       }
     }
 

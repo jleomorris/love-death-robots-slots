@@ -219,6 +219,7 @@ const Header = (props) => {
               starRatedColor='#ed3501'
               numberOfStars={5}
               name='rating'
+              starDimension={`${screenWidth > 768 ? '55px' : '30px'}`}
             />
             <p className='star-ratings__rating'>
               ({Math.round((props.currentEpisode.rating / 2) * 10) / 10})

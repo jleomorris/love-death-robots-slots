@@ -26,7 +26,7 @@
   .styled-series-logo {
     @include mq(0) {
       //   width: 250px !important;
-      top: 0px !important;
+      top: 15px !important;
     }
 
     @include mq(tabletS) {
@@ -71,7 +71,7 @@
     display: flex;
     align-items: center;
     position: relative;
-    padding-left: 2rem;
+    // padding-left: 2rem;
     width: 100%;
 
     &--homepage {
@@ -92,12 +92,12 @@
       &--tablet {
         margin-bottom: 0 !important;
         width: calc(100% - 4rem);
+        margin-left: 2rem;
       }
 
       .episode-title {
         font-weight: 100;
         color: white;
-        letter-spacing: 2rem;
         margin: 0;
         opacity: 0.8;
         text-align: left;
@@ -105,10 +105,12 @@
         animation: glitch1 3.5s infinite;
 
         @include mq(0) {
+          letter-spacing: 1rem;
           font-size: 4rem;
         }
 
         @include mq(tabletS) {
+          letter-spacing: 2rem;
           font-size: 6rem;
         }
 
@@ -188,16 +190,28 @@
       top: 15px;
       left: 30px;
       margin: 0;
-      font-size: 8rem;
       color: #ffffff6e;
+
+      @include mq(0) {
+        font-size: 6rem;
+      }
+      @include mq(tabletS) {
+        font-size: 8rem;
+      }
     }
 
     &__season {
-      font-size: 70px;
       padding: 0;
       margin: 0;
       //   max-width: 80%;
       text-align: end;
+
+      @include mq(0) {
+        font-size: 40px;
+      }
+      @include mq(tabletS) {
+        font-size: 70px;
+      }
     }
 
     &__description {
@@ -236,6 +250,7 @@
     color: white;
     letter-spacing: 6px;
     font-weight: 100;
+    margin-left: 2rem;
 
     @include mq(0) {
       font-size: 20px;
@@ -246,10 +261,12 @@
 
     &--tablet {
       margin-bottom: 8rem;
+      text-align: left;
     }
 
     &--highlighted {
       font-weight: 900;
+      margin: 0;
 
       @include mq(0) {
         font-size: 50px;
