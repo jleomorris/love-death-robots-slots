@@ -25,6 +25,19 @@
       padding-left: 2rem;
     }
 
+    &__btn-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include mq(0) {
+        width: 100%;
+      }
+      @include mq(tabletS) {
+        width: unset;
+      }
+    }
+
     .sort__main {
       color: white;
 
@@ -32,7 +45,7 @@
         font-size: 20px;
         width: 100%;
       }
-      @include mq(tabletM) {
+      @include mq(tabletS) {
         font-size: 40px;
         width: unset;
       }

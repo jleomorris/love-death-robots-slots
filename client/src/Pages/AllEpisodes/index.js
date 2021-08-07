@@ -56,29 +56,31 @@ const AllEpisodes = (props) => {
       </button>
       <StyledSortBy className='sort-by'>
         <p className='sort__main'>Sort by:</p>
-        <div
-          className={`btn btn--trans-white ${
-            sortedBy === 'episodeNumber' ? 'btn--selected' : ''
-          }`}
-          onClick={() => sortHandler('episodeNumber')}
-        >
-          Number
-        </div>
-        <div
-          className={`btn btn--trans-white ${
-            sortedBy === 'rating' ? 'btn--selected' : ''
-          }`}
-          onClick={() => sortHandler('rating')}
-        >
-          Rating
-        </div>
-        <div
-          className={`btn btn--trans-white ${
-            sortedBy === 'duration' ? 'btn--selected' : ''
-          }`}
-          onClick={() => sortHandler('duration')}
-        >
-          Duration
+        <div className='sort-by__btn-container'>
+          <div
+            className={`btn btn--trans-white ${
+              sortedBy === 'episodeNumber' ? 'btn--selected' : ''
+            }`}
+            onClick={() => sortHandler('episodeNumber')}
+          >
+            Number
+          </div>
+          <div
+            className={`btn btn--trans-white ${
+              sortedBy === 'rating' ? 'btn--selected' : ''
+            }`}
+            onClick={() => sortHandler('rating')}
+          >
+            Rating
+          </div>
+          <div
+            className={`btn btn--trans-white ${
+              sortedBy === 'duration' ? 'btn--selected' : ''
+            }`}
+            onClick={() => sortHandler('duration')}
+          >
+            Duration
+          </div>
         </div>
       </StyledSortBy>
       {allEpisodes &&

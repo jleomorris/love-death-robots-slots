@@ -87,12 +87,11 @@
 
     .episode-title-container {
       margin-bottom: 7rem;
-      //   width: 100vw;
+      margin-left: 2rem;
 
       &--tablet {
         margin-bottom: 0 !important;
         width: calc(100% - 4rem);
-        margin-left: 2rem;
       }
 
       .episode-title {
