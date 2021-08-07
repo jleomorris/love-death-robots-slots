@@ -19,9 +19,9 @@
     min-height: unset;
   }
 
-  & > * {
-    filter: blur(0);
-  }
+  //   & > * {
+  //     filter: blur(0);
+  //   }
 
   .styled-series-logo {
     @include mq(0) {

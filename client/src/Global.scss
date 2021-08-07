@@ -1,3 +1,5 @@
+@import './Components/GlobalVars/index.scss';
+
 body {
   font-family: 'Bebas Neue', cursive;
 }
@@ -9,14 +11,14 @@ body {
 // Button styles
 .btn {
   border-radius: 999px;
-  width: 200px;
   padding: 5px 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 35px;
   cursor: pointer;
   transition: all 0.5s ease;
+  width: 150px;
+  font-size: 25px;
 
   &--homepage {
     background: white;

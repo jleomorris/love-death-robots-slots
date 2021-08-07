@@ -62,7 +62,7 @@ const Header = (props) => {
 
   return (
     <StyledHeader
-      className='header section'
+      className='header'
       variants={pageAnimation}
       initial='hidden'
       animate='show'

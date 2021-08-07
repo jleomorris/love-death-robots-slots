@@ -73,6 +73,12 @@ export const allEpisodesSlideUp = (delay) => ({
     opacity: 1,
     transition: { duration: 0.75, ease: 'easeOut', delay: delay },
   },
+  showTabletMobile: {
+    y: '-35%',
+    x: '-50%',
+    opacity: 1,
+    transition: { duration: 0.75, ease: 'easeOut', delay: delay },
+  },
 });
 
 export const slideDown = (delay) => ({

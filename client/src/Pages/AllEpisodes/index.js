@@ -7,10 +7,12 @@ import DynamicEpisodeCard from '../../Components/DynamicEpisodeCard';
 import X2 from '../../Components/Icons/X2';
 // Animations
 import { allEpisodesSlideUp, fadeIn } from '../../animations';
+import useWindowSize from '../../hooks/useWindowSize';
 
 const AllEpisodes = (props) => {
   const [allEpisodes, setAllEpisodes] = useState();
   const [sortedBy, setSortedBy] = useState('episodeNumber');
+  const { screenWidth } = useWindowSize();
 
   useEffect(() => {
     // Copy made so original episode data doesn't get mutated on sorting (will cause bugs)
@@ -42,7 +44,7 @@ const AllEpisodes = (props) => {
       className='all-episodes'
       variants={allEpisodesSlideUp(0)}
       initial='hidden'
-      animate='show'
+      animate={`${screenWidth > 1200 ? 'show' : 'showTabletMobile'}`}
     >
       <button
         className='exit-button'
@@ -52,7 +54,7 @@ const AllEpisodes = (props) => {
       >
         <X2 />
       </button>
-      <StyledSort className='sort'>
+      <StyledSortBy className='sort-by'>
         <p className='sort__main'>Sort by:</p>
         <div
           className={`btn btn--trans-white ${
@@ -78,7 +80,7 @@ const AllEpisodes = (props) => {
         >
           Duration
         </div>
-      </StyledSort>
+      </StyledSortBy>
       {allEpisodes &&
         allEpisodes.map((episode) => (
           <>
@@ -102,8 +104,8 @@ const StyledAllEpisodes = styled(motion.div)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 93vh;
-  width: 90vw;
+  height: 100vh;
+  width: 90%;
   padding: 1rem;
   z-index: 999999;
   background: #000000d1;
@@ -115,22 +117,6 @@ const StyledAllEpisodes = styled(motion.div)`
   overflow: auto;
 `;
 
-const StyledSort = styled(motion.div)`
-  padding-left: 2rem;
-  width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-
-  .sort__main {
-    color: white;
-    font-size: 40px;
-  }
-
-  .btn {
-    margin: 0 1rem;
-  }
-`;
+const StyledSortBy = styled(motion.div)``;
 
 export default AllEpisodes;
