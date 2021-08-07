@@ -312,13 +312,17 @@ const Slots = (props) => {
           </div>
         </div>
       </StyledSlotsMain>
-      <div className={`slots-cta ${props.isTablet ? 'slots-cta--tablet' : ''}`}>
+      <StyledSlotsCta
+        className={`slots-cta ${props.isTablet ? 'slots-cta--tablet' : ''}`}
+        variants={fadeOut(0)}
+        initial='hidden'
+        animate={props.isRolling ? 'show' : ''}
+        exit='exit'
+      >
         <div
           className={`btn ${
             props.episodesGenerated === 0 ? 'btn--homepage' : ''
-          } ${props.episodesGenerated > 0 ? 'btn--trans-white' : ''} ${
-            props.isRolling === false ? 'btn--blink' : 'btn--hide'
-          }`}
+          } ${props.episodesGenerated > 0 ? 'btn--trans-white' : ''}`}
           onClick={rollHandler}
           disabled={props.isRolling}
         >
@@ -327,20 +331,19 @@ const Slots = (props) => {
         <div
           className={`btn ${
             props.episodesGenerated === 0 ? 'btn--homepage' : ''
-          } ${props.episodesGenerated > 0 ? 'btn--trans-white' : ''} ${
-            props.isRolling === false ? 'btn--blink' : 'btn--hide'
-          }`}
+          } ${props.episodesGenerated > 0 ? 'btn--trans-white' : ''}`}
           onClick={() =>
             props.setAreAllEpisodesVisible(!props.areAllEpisodesVisible)
           }
         >
           All episodes
         </div>
-      </div>
+      </StyledSlotsCta>
     </div>
   );
 };
 
 const StyledSlotsMain = styled(motion.div)``;
+const StyledSlotsCta = styled(motion.div)``;
 
 export default Slots;
