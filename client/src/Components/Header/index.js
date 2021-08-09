@@ -174,7 +174,7 @@ const Header = (props) => {
         {props.setCurrentEpisode !== undefined && (
           <StyledEpisodeTitleContainer
             className={`episode-title-container ${
-              screenWidth < 1200 ? 'episode-title-container--tablet' : '' > 1200
+              screenWidth < 1200 ? 'episode-title-container--tablet' : ''
             }`}
             variants={episodesGenerated === 1 ? slideUp(2) : slideUp(3)}
             initial='hidden'
